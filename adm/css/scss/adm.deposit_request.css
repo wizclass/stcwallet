@@ -1,0 +1,115 @@
+.red {
+  color: red;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hash {
+  min-width: 120px;
+  height: auto;
+  display: block;
+}
+
+.reg_text {
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  width: 80%;
+}
+
+table.regTb {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table.regTb {
+  border-top: solid 1px #777;
+}
+
+table.regTb {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+table.regTb th,
+table.regTb td {
+  line-height: 22px;
+  text-align: center;
+}
+
+table.regTb th {
+  padding: 6px 0;
+  border: 1px solid #d1dee2;
+  background: #e5ecef;
+  color: #383838;
+  letter-spacing: -0.1em;
+}
+
+table.regTb td {
+  padding: 8px 0;
+  border-bottom: solid 1px #ddd;
+  border-right: solid 1px #ddd;
+}
+
+table.regTb input[type=text] {
+  padding: 0;
+  padding-left: 8px;
+  height: 23px;
+  line-height: 23px;
+  border: solid 1px #ccc;
+  background-color: #f9f9f9;
+}
+
+table.regTb textarea {
+  padding: 0;
+  padding-left: 8px;
+  line-height: 23px;
+  border: solid 1px #ccc;
+  background-color: #f9f9f9;
+}
+
+table.regTb label {
+  cursor: pointer;
+}
+
+
+
+select {
+  padding: 5px;
+  min-width: 80px;
+  width: 80%;
+}
+
+table tr td {
+  text-align: center;
+}
+
+.row_dup td {
+  background: rgba(253, 240, 220, 0.8);
+}
+
+.btn_submit.excel {
+  background: green;
+  position: absolute;
+  top: 4.35em;
+  left: 97em;
+  height: 24px;
+  font-size: 0.95em;
+}
+
+.local_ov strong {
+  color: red;
+  font-weight: 600;
+}
+
+.local_ov .tit {
+  color: black;
+  font-weight: 600;
+}
+
+.local_ov a {
+  margin-left: 20px;
+}
