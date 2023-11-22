@@ -3,7 +3,7 @@ test_server.php
 *.bak
 *.tmp
 /config.php
-/logcompany.php
+/wizclass.php
 /python/__pycache__/*
 /python/requirements.txt
 /python/nohup.out

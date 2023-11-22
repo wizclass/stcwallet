@@ -1,44 +1,45 @@
-<? 
-	include_once(G5_THEME_PATH.'/_include/head.php'); 
-	$temp_id = get_cookie("ck_ca_id", $mb_id, time() + 86400*31);
+<?
+include_once(G5_THEME_PATH . '/_include/head.php');
+$temp_id = get_cookie("ck_ca_id", $mb_id, time() + 86400 * 31);
 ?>
 <style>
-#wrapper{
-	background:#f8fbff;
-	margin: 0 auto;
-}
-
+	#wrapper {
+		background: #f8fbff;
+		margin: 0 auto;
+	}
 </style>
 <section id="wrapper">
 	<div class="v_center">
 		<div class="login_wrap">
 			<div class="logo_login_div">
-				<img src="<?=G5_THEME_URL?>/img/logo.svg" alt="LOGO">
-				<?if(strpos($url,'adm')){echo "<br><span class='adm_title'>For Administrator</span>";}?>
+				<img src="<?= G5_THEME_URL ?>/img/logo_1.png" alt="LOGO">
+				<? if (strpos($url, 'adm')) {
+					echo "<br><span class='adm_title'>For Administrator</span>";
+				} ?>
 			</div>
 
 			<form name="flogin" method="post" id="login_form">
-					<input type="hidden" id="url" name="url" value="<?=$url?>">
+				<input type="hidden" id="url" name="url" value="<?= $url ?>">
 				<div>
 					<label for="u_name"><span>아이디</span></label>
-					<input type="text" name="mb_id" id="u_name" placeholder="아이디" value="<?=$temp_id?>"/>
+					<input type="text" name="mb_id" id="u_name" placeholder="아이디" value="<?= $temp_id ?>" />
 
 				</div>
 				<div>
-					<label for="u_pw"><span >비밀번호</span></label>
-					<input type="password" name="mb_password" id="u_pw" style="line-height:22px;" placeholder="비밀번호 입력" onkeyup="press(event)"/>
+					<label for="u_pw"><span>비밀번호</span></label>
+					<input type="password" name="mb_password" id="u_pw" style="line-height:22px;" placeholder="비밀번호 입력" onkeyup="press(event)" />
 				</div>
 
 				<div style='display:flex; align-items:center; padding: 6px'>
-					<input type="checkbox" id="showPw" >
+					<input type="checkbox" id="showPw">
 					<label for="showPw" style="margin:0">비밀번호 표시</label>
 				</div>
-			
+
 				<!-- <div style='text-align:left'>
 					<input type="checkbox" name="auto_login"  style="width:auto" id="login_auto_login" checked >
 					<label for="login_auto_login" class="auto_login" style="display:inline-block">자동로그인</label>
 				</div> -->
-				
+
 
 				<div class="login_btn_bottom">
 					<a href="/page.php?id=find_id" class='desc' style="text-decoration: none">아이디 찾기</a>
@@ -51,15 +52,15 @@
 				</div>
 			</form>
 
-			
+
 		</div>
-		
+
 	</div>
 
 	<div class='footer'>
-		<p class='copyright'><?=copyright?></p>
+		<p class='copyright'><?= copyright ?></p>
 	</div>
-	
+
 </section>
 
 <style>
@@ -77,7 +78,7 @@
 		border-color: #00c8d5;
 	}
 
-	#showPw + label {
+	#showPw+label {
 		font-size: 13px;
 	}
 
@@ -93,10 +94,8 @@
 </style>
 
 <script type="text/javascript">
-
-
 	$('#showPw').on('click', function() {
-		if($('#showPw').hasClass('active')) {
+		if ($('#showPw').hasClass('active')) {
 			$('#u_pw').attr("type", "password");
 			$('#showPw').removeClass('active');
 		} else {
@@ -105,31 +104,31 @@
 		}
 	});
 
-	function press(e){
-		if(e.keyCode == 13){
+	function press(e) {
+		if (e.keyCode == 13) {
 			flogin_submit();
 			e.preventDefault();
 		}
 	}
 
-	function flogin_submit(){
+	function flogin_submit() {
 		// $('form[name=flogin]').submit();
 
 		$.ajax({
-			url : '/bbs/login_check.php',
-			type : "POST",
-			dataType : "json",
-			async : false,
-			cache : false,
-			data : {
+			url: '/bbs/login_check.php',
+			type: "POST",
+			dataType: "json",
+			async: false,
+			cache: false,
+			data: {
 				mb_id: document.querySelector('#u_name').value,
 				mb_password: document.querySelector('#u_pw').value,
-				url: "<?=$login_url?>"
+				url: "<?= $login_url ?>"
 			},
-			success : function(res) {
-				if(res.code != "200"){
+			success: function(res) {
+				if (res.code != "200") {
 					dialogModal("", res.msg, 'warning');
-					
+
 					return false;
 				}
 				location.href = res.url;
@@ -138,24 +137,24 @@
 				const json = JSON.stringify(e);
 				alert(json);
 			}
-			})
+		})
 
 		return false;
-		}
+	}
 
 
-	
-	function showhelp(){
+
+	function showhelp() {
 		$('.helpmail').toggle();
 	}
 
-	function press(f){
-		if(event.keyCode == 13){
+	function press(f) {
+		if (event.keyCode == 13) {
 			flogin_submit();
 		}
 	}
-	
-	function temp_block(){
-		commonModal("Notice",'방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요.<br /><br />Welcome to One-EtherNet.<br />Pre-subscription is closed.<br />If you are a registered member,<br />please log in.',220);
+
+	function temp_block() {
+		commonModal("Notice", '방문을 환영합니다.<br />사전 가입이 마감되었습니다.<br />가입하신 회원은 로그인 해주세요.<br /><br />Welcome to One-EtherNet.<br />Pre-subscription is closed.<br />If you are a registered member,<br />please log in.', 220);
 	}
 </script>

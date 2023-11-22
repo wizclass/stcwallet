@@ -1,11 +1,11 @@
 <?php
 $menubar = 1;
-include_once(G5_THEME_PATH.'/_include/head.php');
-include_once(G5_THEME_PATH.'/_include/gnb.php');
+include_once(G5_THEME_PATH . '/_include/head.php');
+include_once(G5_THEME_PATH . '/_include/gnb.php');
 // include_once(G5_THEME_PATH.'/_include/lang.php');
 
-if($nw['nw_enroll'] == 'Y'){
-}else{
+if ($nw['nw_enroll'] == 'Y') {
+} else {
 	alert("현재 서비스를 이용할수없습니다.");
 }
 
@@ -16,7 +16,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 
 <link href="<?= G5_THEME_URL ?>/css/scss/enroll.css" rel="stylesheet">
 <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-<script src="<?=G5_URL?>/js/certify.js"></script>
+<script src="<?= G5_URL ?>/js/certify.js"></script>
 
 <div class="v_center" style="padding:0;">
 
@@ -27,28 +27,28 @@ $marketing_term = get_write("g5_write_agreement", 3);
 
 			<p class="check_appear_title"><span>개인 정보 & 인증</span></p>
 			<div>
-				
-				
+
+
 				<!-- <input type="text" name="mb_hp"  id="reg_mb_hp" class='cabinet'  pattern="[0-9]*" style='padding:15px' required  placeholder="휴대폰번호"/>
 				<span class='cabinet_inner' style=''>※'-'를 제외한 숫자만 입력해주세요</span> -->
 
-				
+
 				<!-- <div class='in_btn_ly'><input type="button" id='win_hp_cert' class='btn_round check hp_cert' value="휴대폰 본인인증" style="width:80px;"></div> -->
-				
+
 				<input type="button" id='win_hp_cert' class='btn btn_wd btn_primary hp_cert' value="휴대폰 본인인증" style="width:100%;">
-				
-				<input type="text" name="mb_name" style='padding:15px;display:none;' id="reg_mb_name" required placeholder="이름"/>
-				<input type="text" name="mb_hp"  id="reg_mb_hp" class='hp_cert' style='padding:15px;display:none;' readonly placeholder="휴대폰번호"/>
-				<input type="email" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디 (이메일형식)"/>
+
+				<input type="text" name="mb_name" style='padding:15px;display:none;' id="reg_mb_name" required placeholder="이름" />
+				<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px;display:none;' readonly placeholder="휴대폰번호" />
+				<input type="email" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디 (이메일형식)" />
 				<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
 				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 인증"></div>
 
-				
-				
-		
+
+
+
 			</div>
 
-			
+
 
 			<ul class="clear_fix pw_ul mt20">
 				<li>
@@ -57,65 +57,65 @@ $marketing_term = get_write("g5_write_agreement", 3);
 
 					<strong><span class='mb10' style='display:block;font-size:13px;'>비밀번호 설정 조건</span></strong>
 					<ul>
-						<li class="x_li" id="pm_1" >8자 이상 16자 이하</li>
-						<li class="x_li" id="pm_3" >영문+숫자+특수문자</li>
-						<li class="x_li" id="pm_5" >비밀번호 비교</li>
+						<li class="x_li" id="pm_1">8자 이상 16자 이하</li>
+						<li class="x_li" id="pm_3">영문+숫자+특수문자</li>
+						<li class="x_li" id="pm_5">비밀번호 비교</li>
 					</ul>
 				</li>
 				<li style='margin-left:5px'>
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password" name="reg_tr_password" placeholder="출금비밀번호(핀코드)" />
 					<input type="password" minlength="6" maxlength="6" id="reg_tr_password_re" name="reg_tr_password_re" placeholder="출금비밀번호(핀코드) 확인" />
 
-					<strong><span class='mb10' style='display:block;font-size:13px;' >핀코드 설정 조건</span></strong>
+					<strong><span class='mb10' style='display:block;font-size:13px;'>핀코드 설정 조건</span></strong>
 					<ul>
-						<li class="x_li" id="pt_1" >6 자리</li>
-						<li class="x_li" id="pt_3" >숫자</li>
-						<li class="x_li" id="pt_2" >핀코드 비교</li>
+						<li class="x_li" id="pt_1">6 자리</li>
+						<li class="x_li" id="pt_3">숫자</li>
+						<li class="x_li" id="pt_2">핀코드 비교</li>
 					</ul>
 				</li>
 			</ul>
 
-			
+
 
 			<!--
 			<hr>
 			<div class="agreement_btn"> <button type="button" class="agreeement_show btn"><span data-i18n='register.회원가입 약관보기'>Read Terms and Conditions</span></button></div>
 			-->
 
-			<p class="check_appear_title mt40"><span >회원가입 약관동의 </span></p>
+			<p class="check_appear_title mt40"><span>회원가입 약관동의 </span></p>
 			<div class="mt20">
 				<div class="term_space">
-					<input type="checkbox" id="service_checkbox" class="checkbox-style-square term_none" name="term_required" >
+					<input type="checkbox" id="service_checkbox" class="checkbox-style-square term_none" name="term_required">
 					<label for="service_checkbox" style="width:25px;height:25px;">
 						<span style='margin-left:10px;line-height:30px;'><?= $service_term['wr_subject'] ?> 동의 (필수)</span>
-						<a id="service" href="javascript:collapse('#service');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+						<a id="service" href="javascript:collapse('#service');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="service_term" class="term_textarea term_none"><?= $service_term['wr_content'] ?></textarea>
 				</div>
-				
-				
+
+
 
 				<div class="term_space">
-					<input type="checkbox" id="private_checkbox" class="checkbox-style-square term_none" name="term_required" >
+					<input type="checkbox" id="private_checkbox" class="checkbox-style-square term_none" name="term_required">
 					<label for="private_checkbox" style="width:25px;height:25px;">
 						<span style='margin-left:10px;line-height:30px;'><?= $private_term['wr_subject'] ?> 동의 (필수)</span>
-						<a id="private" href="javascript:collapse('#private');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+						<a id="private" href="javascript:collapse('#private');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="private_term" class="term_textarea term_none"><?= $private_term['wr_content'] ?></textarea>
 				</div>
-				
+
 
 				<div class="term_space">
 					<input type="checkbox" id="marketing_checkbox" class="checkbox-style-square term_none" name="mb_sms" value="1">
 					<label for="marketing_checkbox" style="width:25px;height:25px;">
 						<span style='margin-left:10px;line-height:30px;'><?= $marketing_term['wr_subject'] ?> 동의 (선택)</span>
-						<a id="marketing" href="javascript:collapse('#marketing');"  style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
+						<a id="marketing" href="javascript:collapse('#marketing');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="marketing_term" class="term_textarea term_none"><?= $marketing_term['wr_content'] ?></textarea>
 				</div>
-				
+
 			</div>
-			
+
 
 			<div class="btn2_wrap " style='width:100%;height:60px; display: flex'>
 				<input class="btn btn_double btn_secondary btn_cancle" type="button" value="취소">
@@ -139,24 +139,24 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		$(".top_title h3").html("<span style='font-size:16px;line-height:20px;'>신규 회원등록</span>");
 
 		onlyNumber('reg_mb_hp');
-		$('.cabinet').on('click',function(){
-			$(this).next().css('display','contents');
+		$('.cabinet').on('click', function() {
+			$(this).next().css('display', 'contents');
 		});
 
-		$('.cabinet').on('mouseout',function(){
-			$(this).next().css('display','none');
+		$('.cabinet').on('mouseout', function() {
+			$(this).next().css('display', 'none');
 		});
 
-		$('.btn_cancle').on('click',function(){
+		$('.btn_cancle').on('click', function() {
 			dialogModal("회원가입 취소", "입력했던 내용을 모두 삭제하고 초기화면으로 돌아갑니다.", 'warning');
-			$('#modal_return_url').on('click',function(){
-				location.href= g5_url;
+			$('#modal_return_url').on('click', function() {
+				location.href = g5_url;
 			});
 		});
 
 
 		/*이메일 체크*/
-		$('#EmailChcek').on('click',function(){
+		$('#EmailChcek').on('click', function() {
 			var email = $('#reg_mb_id').val();
 			var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 
@@ -177,7 +177,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 				},
 				complete: function(res) {
 					var email_check = res.hasOwnProperty("responseJSON")
-					if(email_check){
+					if (email_check) {
 						dialogModal("이메일 인증", "이미 사용중인 이메일 입니다.", 'failed');
 						return false;
 					}
@@ -220,7 +220,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		});
 	});
 
-	
+
 	function collapse(id) {
 		if ($(id + "_term").css("display") == "none") {
 			$(id + "_term").css("display", "block");
@@ -238,7 +238,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 			});
 		}
 	}
-	
+
 	//휴대폰 인증
 	/* var mb_hp_check = false;
 	document.querySelector('#hp_check').addEventListener('click',function(){
@@ -324,72 +324,71 @@ $marketing_term = get_write("g5_write_agreement", 3);
 	$(function() {
 		mb_hp_check = true;
 		var pageTypeParam = "pageType=register";
-		
-        <?php if($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
-		var params = "";
-        // 휴대폰인증
-        $("#win_hp_cert").click(function() {
-            if(!cert_confirm())
-                if(!cert_confirm()) return false;
-            	params = "?" + pageTypeParam;
-            <?php
-            switch($config['cf_cert_hp']) {
-                case 'kcb':
-                    $cert_url = G5_OKNAME_URL.'/hpcert1.php';
-                    $cert_type = 'kcb-hp';
-                    break;
-                case 'kcp':
-                    $cert_url = G5_KCPCERT_URL.'/kcpcert_form.php';
-                    $cert_type = 'kcp-hp';
-                    break;
-                default:
-                    echo 'alert("기본환경설정에서 휴대폰 본인확인 설정을 해주십시오");';
-                    echo 'return false;';
-                    break;
-            }
-            ?>
 
-			certify_win_open("<?php echo $cert_type; ?>", "<?php echo $cert_url; ?>"+params);
-            return;
-        });
-        <?php } ?>
-    });
+		<?php if ($config['cf_cert_use'] && $config['cf_cert_hp']) { ?>
+			var params = "";
+			// 휴대폰인증
+			$("#win_hp_cert").click(function() {
+				if (!cert_confirm())
+					if (!cert_confirm()) return false;
+				params = "?" + pageTypeParam;
+				<?php
+				switch ($config['cf_cert_hp']) {
+					case 'kcb':
+						$cert_url = G5_OKNAME_URL . '/hpcert1.php';
+						$cert_type = 'kcb-hp';
+						break;
+					case 'kcp':
+						$cert_url = G5_KCPCERT_URL . '/kcpcert_form.php';
+						$cert_type = 'kcp-hp';
+						break;
+					default:
+						echo 'alert("기본환경설정에서 휴대폰 본인확인 설정을 해주십시오");';
+						echo 'return false;';
+						break;
+				}
+				?>
 
-    // 인증체크
-    function cert_confirm()
-    {
-        var val = document.fregisterform.cert_type.value;
-        var type;
+				certify_win_open("<?php echo $cert_type; ?>", "<?php echo $cert_url; ?>" + params);
+				return;
+			});
+		<?php } ?>
+	});
 
-        switch(val) {
-            case "ipin":
-                type = "아이핀";
-                break;
-            case "hp":
-                type = "휴대폰";
-                break;
-            default:
-                return true;
-        }
+	// 인증체크
+	function cert_confirm() {
+		var val = document.fregisterform.cert_type.value;
+		var type;
 
-        if(confirm("이미 "+type+"으로 본인확인을 완료하셨습니다.\n\n이전 인증을 취소하고 다시 인증하시겠습니까?"))
-            return true;
-        else
-            return false;
-    }
+		switch (val) {
+			case "ipin":
+				type = "아이핀";
+				break;
+			case "hp":
+				type = "휴대폰";
+				break;
+			default:
+				return true;
+		}
+
+		if (confirm("이미 " + type + "으로 본인확인을 완료하셨습니다.\n\n이전 인증을 취소하고 다시 인증하시겠습니까?"))
+			return true;
+		else
+			return false;
+	}
 
 
 	// submit 최종 폼체크
 	function fregisterform_submit() {
 		var f = $('#fregisterform')[0];
-		
+
 
 		// 이름
 		if (f.mb_name.value == '' || f.mb_name.value == 'undefined') {
 			dialogModal('이름입력확인', '이름을 확인해주세요', 'warning');
 			return false;
 		}
-		
+
 		//아이디 중복체크
 		// if (check_id == 0) {
 		// 	dialogModal('ID 중복확인', '아이디 중복확인을 해주세요.', 'warning');
@@ -401,7 +400,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 			dialogModal('휴대폰번호확인', '휴대폰 번호가 잘못되거나 누락되었습니다.', 'warning');
 			return false;
 		}
-		
+
 
 		// 패스워드
 		if (!chkPwd_1($('#reg_mb_password').val(), $('#reg_mb_password_re').val())) {
@@ -449,12 +448,11 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		});
 	}
 
-	function chkChar(obj){
+	function chkChar(obj) {
 		var RegExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+┼<>@\#$%&\'\"\\\(\=0-9]/gi;
 		if (RegExp.test(obj.value)) {
 			// 특수문자 모두 제거    
-			obj.value = obj.value.replace(RegExp , '');
+			obj.value = obj.value.replace(RegExp, '');
 		}
 	}
-
 </script>

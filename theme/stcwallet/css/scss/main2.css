@@ -3,6 +3,7 @@
     margin-top: 50px;
     opacity: 0.7;
   }
+
   to {
     margin-top: 0;
     opacity: 1;
@@ -14,6 +15,7 @@
     margin-top: 50px;
     opacity: 0.7;
   }
+
   to {
     margin-top: 0;
     opacity: 1;
@@ -42,7 +44,7 @@ main {
 .content_box3 {
   background-color: #fff;
   -webkit-box-shadow: 0 1px 3px #eee;
-          box-shadow: 0 1px 3px #eee;
+  box-shadow: 0 1px 3px #eee;
   padding: 20px;
   border-radius: 10px;
   margin: 15px 0;
@@ -51,7 +53,7 @@ main {
 .null_data {
   background-color: #fff;
   -webkit-box-shadow: 0 1px 3px #eee;
-          box-shadow: 0 1px 3px #eee;
+  box-shadow: 0 1px 3px #eee;
   padding: 20px;
   border-radius: 10px;
   margin: 15px 0;
@@ -119,8 +121,8 @@ main {
   display: -ms-flexbox !important;
   display: flex !important;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .intro_wrapper .intro_dots li button {
@@ -151,8 +153,8 @@ main {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   color: #ff0000;
   font-weight: bold;
   cursor: pointer;
@@ -217,14 +219,14 @@ main {
 
 .enroll_wrap .btn2_wrap .btn_cancle {
   -webkit-box-flex: 0.3;
-      -ms-flex-positive: 0.3;
-          flex-grow: 0.3;
+  -ms-flex-positive: 0.3;
+  flex-grow: 0.3;
 }
 
 .enroll_wrap .btn2_wrap .submit {
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
 header .left_gnbWrap .user-content {
@@ -284,13 +286,13 @@ header .logout_wrap {
   display: flex;
 }
 
-.login_wrap .login_btn_bottom .login_btn_wrap > * {
+.login_wrap .login_btn_bottom .login_btn_wrap>* {
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.login_wrap .login_btn_bottom .login_btn_wrap > *:nth-child(2) {
+.login_wrap .login_btn_bottom .login_btn_wrap>*:nth-child(2) {
   margin-left: 10px;
 }
 
@@ -309,23 +311,25 @@ header .logout_wrap {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 14px;
   margin: 20px 0;
 }
 
-.dashboard .nav_wrap .nav1, .dashboard .nav_wrap .nav2, .dashboard .nav_wrap .nav3 {
+.dashboard .nav_wrap .nav1,
+.dashboard .nav_wrap .nav2,
+.dashboard .nav_wrap .nav3 {
   position: relative;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   background-color: #ecf3fa;
   border-radius: 5px;
   text-align: center;
@@ -336,7 +340,9 @@ header .logout_wrap {
   color: #767676;
 }
 
-.dashboard .nav_wrap .nav1::after, .dashboard .nav_wrap .nav2::after, .dashboard .nav_wrap .nav3::after {
+.dashboard .nav_wrap .nav1::after,
+.dashboard .nav_wrap .nav2::after,
+.dashboard .nav_wrap .nav3::after {
   content: "+";
   color: #00c8d5;
   display: inline-block;
@@ -413,7 +419,7 @@ header .logout_wrap {
 
 .mywallet #deposit .content_wrap .qrBox_right #accountCopy {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: 1px solid #00c8d5;
   background: none;
   border-radius: 10px;
@@ -483,13 +489,13 @@ header .logout_wrap {
   border: 1px solid #00c8d5 !important;
 }
 
-.mywallet #withdraw .content_wrap > div {
+.mywallet #withdraw .content_wrap>div {
   position: relative;
   display: flow-root;
   margin: 15px 0;
 }
 
-.mywallet #withdraw .content_wrap > div:first-child {
+.mywallet #withdraw .content_wrap>div:first-child {
   margin: 0;
 }
 
@@ -524,8 +530,8 @@ header .logout_wrap {
   color: #fff;
   right: 0%;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   margin-left: 5px;
 }
 
@@ -535,8 +541,8 @@ header .logout_wrap {
   border: 1px solid #dfe4ec;
   border-radius: 6px;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   color: #686767;
   font-weight: 300;
 }
@@ -605,7 +611,8 @@ header .logout_wrap {
   left: 0%;
 }
 
-.mywallet #deposit .title, .mywallet #withdraw .title {
+.mywallet #deposit .title,
+.mywallet #withdraw .title {
   float: none;
   font-size: 0.9rem;
   margin: 10px 0;
@@ -666,7 +673,7 @@ header .logout_wrap {
   vertical-align: baseline;
 }
 
-.staking .caution + span {
+.staking .caution+span {
   font-size: 0.9rem;
   color: #767676;
 }
@@ -689,7 +696,10 @@ header .logout_wrap {
   border-left: none;
 }
 
-.staking .stacking_card.card1 .percent, .staking .stacking_card.card1 .date, .staking .stacking_card.card1 .value, .staking .stacking_card.card1 .currency {
+.staking .stacking_card.card1 .percent,
+.staking .stacking_card.card1 .date,
+.staking .stacking_card.card1 .value,
+.staking .stacking_card.card1 .currency {
   color: #fff;
 }
 
@@ -701,7 +711,10 @@ header .logout_wrap {
   background-size: 100%;
 }
 
-.staking .stacking_card.card2 .percent, .staking .stacking_card.card2 .date, .staking .stacking_card.card2 .value, .staking .stacking_card.card2 .currency {
+.staking .stacking_card.card2 .percent,
+.staking .stacking_card.card2 .date,
+.staking .stacking_card.card2 .value,
+.staking .stacking_card.card2 .currency {
   color: #fff;
 }
 
@@ -713,7 +726,10 @@ header .logout_wrap {
   background-size: 100%;
 }
 
-.staking .stacking_card.card3 .percent, .staking .stacking_card.card3 .date, .staking .stacking_card.card3 .value, .staking .stacking_card.card3 .currency {
+.staking .stacking_card.card3 .percent,
+.staking .stacking_card.card3 .date,
+.staking .stacking_card.card3 .value,
+.staking .stacking_card.card3 .currency {
   color: #fff;
 }
 
@@ -725,13 +741,16 @@ header .logout_wrap {
   background-size: 100%;
 }
 
-.staking .stacking_card.card4 .percent, .staking .stacking_card.card4 .date, .staking .stacking_card.card4 .value, .staking .stacking_card.card4 .currency {
+.staking .stacking_card.card4 .percent,
+.staking .stacking_card.card4 .date,
+.staking .stacking_card.card4 .value,
+.staking .stacking_card.card4 .currency {
   color: #fff;
 }
 
 .notice_wrap ul li span {
-  color: #00c8d5;
-  border: 1px solid #00c8d5;
+  color: #1d5597;
+  border: 1px solid #1d5597;
 }
 
 .more {
@@ -747,7 +766,7 @@ header .logout_wrap {
   background-image: url("../../img/gift_logo_icon.svg"), linear-gradient(-32deg, #00c8d5, #67dfcf);
   background-repeat: no-repeat;
   background-position: 99% 28%, center center;
-  background-size: 3%,100%;
+  background-size: 3%, 100%;
   width: 100%;
   border-radius: 10px;
   border-top-right-radius: 45px;
@@ -763,41 +782,41 @@ header .logout_wrap {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
   min-height: 90px;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .gift_card_wrap .product_cash_wrap img {
   width: 120px;
 }
 
-.gift_card_wrap .product_cash_wrap > div {
+.gift_card_wrap .product_cash_wrap>div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  -ms-flex-align: end;
+  align-items: end;
   font-size: 14px;
 }
 
-.gift_card_wrap .product_cash_wrap > div p {
+.gift_card_wrap .product_cash_wrap>div p {
   font-size: 1.1rem;
   line-height: 22px;
 }
 
-.gift_card_wrap .product_cash_wrap > div p:last-child {
+.gift_card_wrap .product_cash_wrap>div p:last-child {
   font-size: 1.6rem;
 }
 
@@ -807,14 +826,14 @@ header .logout_wrap {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 14px;
   font-size: 1.1rem;
   margin: 15px 0;
@@ -834,14 +853,14 @@ header .logout_wrap {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 14px;
 }
 
@@ -1070,7 +1089,7 @@ header .logout_wrap {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1082,8 +1101,8 @@ header .logout_wrap {
 
 .status_card_wrap .link_btn_wrap a {
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   text-align: center;
 }
 
@@ -1102,22 +1121,22 @@ header .logout_wrap {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 14px;
 }
 
 .history_wrap .history_nav_wrap a {
   text-align: center;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   border: 1px solid #d0d0d0;
   color: #767676;
   height: 45px;
@@ -1137,10 +1156,10 @@ header .logout_wrap {
 
 .history_wrap .history_box {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
-.history_wrap .history_box > * {
+.history_wrap .history_box>* {
   color: #767676;
 }
 
@@ -1150,14 +1169,14 @@ header .logout_wrap {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 14px;
   background: #fff;
   border-top: 1px solid #eef2f8;
@@ -1179,8 +1198,8 @@ header .logout_wrap {
 
 .history_wrap .history_box .hist_con .hist_mid {
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   padding: 0 10px;
   line-height: 30px;
 }
@@ -1235,7 +1254,7 @@ header .logout_wrap {
 }
 
 .modal .modal_basic_btn {
-  background: #00c8d5;
+  background: #1d5597;
   color: #fff;
 }
 
@@ -1243,139 +1262,177 @@ header .logout_wrap {
   .intro_wrapper {
     width: 100%;
   }
+
   .breadcrumb .user-info .user-content .user_id {
     font-size: 0.8rem;
   }
+
   .breadcrumb .user-info .user-content .mygrade {
     font-size: 0.8rem;
   }
+
   .breadcrumb .total_view_wrap .total_view_top .row.top {
     background-color: #fff;
   }
+
   .breadcrumb .total_view_wrap .total_view_top .title {
     font-size: 0.7rem;
   }
+
   .breadcrumb .total_view_wrap .total_view_top .value {
     color: #000;
     font-size: 0.8rem;
   }
+
   .breadcrumb .total_view_wrap .quote_wrap {
     font-size: 0.8rem;
     color: #8b8b8b;
     text-align: right;
     font-weight: 100;
   }
+
   .breadcrumb .total_view_wrap .refresh {
     width: 12px;
     vertical-align: middle;
   }
+
   header .left_gnbWrap .user-content {
     background: none;
     height: 100px;
   }
+
   header .left_gnbWrap .user-content .user_id {
     font-size: 0.8rem;
     margin: 5px 0;
   }
+
   header .left_gnbWrap .user-content .mygrade {
     font-size: 0.8rem;
   }
+
   header .left_gnbWrap .left_gnb {
     height: calc(100% - 340px);
   }
-  .dashboard .nav_wrap .nav1, .dashboard .nav_wrap .nav2, .dashboard .nav_wrap .nav3 {
+
+  .dashboard .nav_wrap .nav1,
+  .dashboard .nav_wrap .nav2,
+  .dashboard .nav_wrap .nav3 {
     font-size: 0.7rem;
   }
+
   .dashboard .gift_box_wrap .swiper-slide.swiper-slide-active {
     width: 80% !important;
   }
+
   .dashboard .gift_box_wrap .swiper-slide.last_slide {
     width: 100% !important;
   }
+
   .dashboard .page_move_btn {
     font-size: 0.8rem;
   }
+
   .mywallet #deposit .content_wrap .qr_img {
     margin: 15px auto 0;
   }
+
   .mywallet #deposit .content_wrap .qr_img img {
     margin: 0 auto;
   }
+
   .mywallet #deposit .content_wrap .qrBox_right #my_eth_wallet {
     color: #767676;
     text-align: center;
     font-weight: bold;
   }
+
   .mywallet #deposit .content_wrap .qrBox_right .explain_text {
     color: #767676;
     text-align: center;
     font-size: 0.7rem;
   }
+
   .mywallet #deposit .content_wrap .currency-right {
     font-size: 0.8rem;
     right: 11%;
   }
+
   .mywallet #deposit .content_wrap .price {
     font-size: 0.8rem;
   }
+
   .mywallet #withdraw .content_wrap #withdraw_wallet_address::-webkit-input-placeholder {
     text-align: center;
     font-weight: 100;
   }
+
   .mywallet #withdraw .content_wrap #withdraw_wallet_address:-ms-input-placeholder {
     text-align: center;
     font-weight: 100;
   }
+
   .mywallet #withdraw .content_wrap #withdraw_wallet_address::-ms-input-placeholder {
     text-align: center;
     font-weight: 100;
   }
+
   .mywallet #withdraw .content_wrap #withdraw_wallet_address::placeholder {
     text-align: center;
     font-weight: 100;
   }
+
   .mywallet #withdraw .content_wrap #max_value {
     background: #00c8d5;
     color: #fff;
     right: 0%;
   }
+
   .mywallet #withdraw .content_wrap #withdraw_currency {
     right: 24%;
   }
+
   .mywallet #withdraw .content_wrap .input_head_title {
     font-size: 0.8rem;
     position: absolute;
     top: 20%;
     left: 4%;
   }
+
   .mywallet .guide {
     font-size: 0.8rem;
     color: #686767;
     font-weight: 100;
   }
+
   .mywallet .guide img {
     vertical-align: initial;
     width: 12px;
   }
+
   .mywallet .guide_content {
     font-size: 0.8rem;
   }
+
   .mywallet .guide_content .title {
     font-size: 0.9rem;
   }
+
   .mywallet .guide_content .title img {
     width: 15px;
   }
+
   .staking .sub_title {
     font-size: 0.8rem;
     margin: 0;
     padding: 15px;
     color: #767676;
   }
+
   .staking .sub_title .caution {
     margin-right: 3px;
     vertical-align: middle;
   }
+
   .staking .stacking_card.card1 {
     background-image: linear-gradient(-32deg, #00c8d5, #00c8d5);
     background-repeat: no-repeat;
@@ -1383,13 +1440,18 @@ header .logout_wrap {
     background-size: 100%;
     border-left: none;
   }
-  .staking .stacking_card.card1 .percent, .staking .stacking_card.card1 .value {
+
+  .staking .stacking_card.card1 .percent,
+  .staking .stacking_card.card1 .value {
     color: #fff;
     margin-bottom: 5px;
   }
-  .staking .stacking_card.card1 .date, .staking .stacking_card.card1 .currency {
+
+  .staking .stacking_card.card1 .date,
+  .staking .stacking_card.card1 .currency {
     font-weight: 100;
   }
+
   .staking .stacking_card.card2 {
     border-left: none;
     background-image: linear-gradient(-32deg, #00d6f6, #00d6f6);
@@ -1397,10 +1459,15 @@ header .logout_wrap {
     background-position: center center;
     background-size: 100%;
   }
-  .staking .stacking_card.card2 .percent, .staking .stacking_card.card2 .date, .staking .stacking_card.card2 .value, .staking .stacking_card.card2 .currency {
+
+  .staking .stacking_card.card2 .percent,
+  .staking .stacking_card.card2 .date,
+  .staking .stacking_card.card2 .value,
+  .staking .stacking_card.card2 .currency {
     color: #fff;
     margin-bottom: 5px;
   }
+
   .staking .stacking_card.card3 {
     border-left: none;
     background-image: linear-gradient(-32deg, #00a2ff, #00a2ff);
@@ -1408,10 +1475,15 @@ header .logout_wrap {
     background-position: center center;
     background-size: 100%;
   }
-  .staking .stacking_card.card3 .percent, .staking .stacking_card.card3 .date, .staking .stacking_card.card3 .value, .staking .stacking_card.card3 .currency {
+
+  .staking .stacking_card.card3 .percent,
+  .staking .stacking_card.card3 .date,
+  .staking .stacking_card.card3 .value,
+  .staking .stacking_card.card3 .currency {
     color: #fff;
     margin-bottom: 5px;
   }
+
   .staking .stacking_card.card4 {
     border-left: none;
     background-image: linear-gradient(-32deg, #1772ee, #1772ee);
@@ -1419,60 +1491,75 @@ header .logout_wrap {
     background-position: center center;
     background-size: 100%;
   }
-  .staking .stacking_card.card4 .percent, .staking .stacking_card.card4 .date, .staking .stacking_card.card4 .value, .staking .stacking_card.card4 .currency {
+
+  .staking .stacking_card.card4 .percent,
+  .staking .stacking_card.card4 .date,
+  .staking .stacking_card.card4 .value,
+  .staking .stacking_card.card4 .currency {
     color: #fff;
     margin-bottom: 5px;
   }
+
   .staking .stacking_card .staking_left_wrap {
     -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
   }
+
   .null_data {
     font-size: 0.8rem;
   }
+
   .gift_card_wrap {
     background-image: url("../../img/gift_logo_icon.svg"), linear-gradient(-32deg, #00c8d5, #67dfcf);
     background-repeat: no-repeat;
     background-position: 89% 21%, center center;
-    background-size: 14%,100%;
+    background-size: 14%, 100%;
   }
+
   .gift_card_wrap .product_cash_wrap img {
     width: 100px;
   }
-  .gift_card_wrap .product_cash_wrap > div {
+
+  .gift_card_wrap .product_cash_wrap>div {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-flow: row;
-            flex-flow: row;
+    -ms-flex-flow: row;
+    flex-flow: row;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
+    -ms-flex-align: end;
+    align-items: end;
     font-size: 14px;
   }
-  .gift_card_wrap .product_cash_wrap > div p {
+
+  .gift_card_wrap .product_cash_wrap>div p {
     font-size: 1rem;
     line-height: 20px;
   }
-  .gift_card_wrap .product_cash_wrap > div p:last-child {
+
+  .gift_card_wrap .product_cash_wrap>div p:last-child {
     font-size: 1.4rem;
   }
+
   .gift_card_sub_wrap {
     font-size: 1rem;
     line-height: 20px;
   }
+
   .gift_card_sub_wrap p:last-child {
     font-size: 1.2rem;
   }
+
   .stacking_card .staking_right_wrap::before {
     left: 60%;
   }
+
   .stacking_card.card1 {
     border-left: 3px solid #0cdbc5;
     background-color: none;
@@ -1480,12 +1567,17 @@ header .logout_wrap {
     background-position: center center;
     background-size: 100%;
   }
-  .stacking_card.card1 .percent, .stacking_card.card1 .value {
+
+  .stacking_card.card1 .percent,
+  .stacking_card.card1 .value {
     font-size: 1.2rem;
   }
-  .stacking_card.card1 .date, .stacking_card.card1 .currency {
+
+  .stacking_card.card1 .date,
+  .stacking_card.card1 .currency {
     font-size: 0.8rem;
   }
+
   .stacking_card.card2 {
     border-left: 3px solid #00d6f6;
     background-color: none;
@@ -1493,12 +1585,17 @@ header .logout_wrap {
     background-position: center center;
     background-size: 100%;
   }
-  .stacking_card.card2 .percent, .stacking_card.card2 .value {
+
+  .stacking_card.card2 .percent,
+  .stacking_card.card2 .value {
     font-size: 1.2rem;
   }
-  .stacking_card.card2 .date, .stacking_card.card2 .currency {
+
+  .stacking_card.card2 .date,
+  .stacking_card.card2 .currency {
     font-size: 0.8rem;
   }
+
   .stacking_card.card3 {
     border-left: 3px solid #00a2ff;
     background-color: none;
@@ -1506,12 +1603,17 @@ header .logout_wrap {
     background-position: center center;
     background-size: 100%;
   }
-  .stacking_card.card3 .percent, .stacking_card.card3 .value {
+
+  .stacking_card.card3 .percent,
+  .stacking_card.card3 .value {
     font-size: 1.2rem;
   }
-  .stacking_card.card3 .date, .stacking_card.card3 .currency {
+
+  .stacking_card.card3 .date,
+  .stacking_card.card3 .currency {
     font-size: 0.8rem;
   }
+
   .stacking_card.card4 {
     border-left: 3px solid #1772ee;
     background-color: none;
@@ -1519,12 +1621,17 @@ header .logout_wrap {
     background-position: center center;
     background-size: 100%;
   }
-  .stacking_card.card4 .percent, .stacking_card.card4 .value {
+
+  .stacking_card.card4 .percent,
+  .stacking_card.card4 .value {
     font-size: 1.2rem;
   }
-  .stacking_card.card4 .date, .stacking_card.card4 .currency {
+
+  .stacking_card.card4 .date,
+  .stacking_card.card4 .currency {
     font-size: 0.8rem;
   }
+
   .status_card_wrap {
     min-height: 250px;
     background-image: url("../../img/card_logo.svg");
@@ -1533,34 +1640,43 @@ header .logout_wrap {
     background-position: 90% 35%;
     background-size: 20%;
   }
+
   .status_card_wrap h5 {
     font-size: 1rem;
   }
+
   .status_card_wrap .esgc_quantity {
     font-size: 1.8rem;
   }
+
   .status_card_wrap .price {
     font-size: 1rem;
     opacity: 0.5;
   }
+
   .status_card_wrap .currency {
     font-size: 1rem;
   }
+
   .status_card_wrap .link_btn_wrap a {
     font-size: 0.9rem;
   }
+
   .history_wrap {
     background-color: #fff;
   }
-  .history_wrap .history_box > * {
+
+  .history_wrap .history_box>* {
     color: #767676;
   }
+
   .history_wrap .history_box .hist_con .hist_mid {
     -webkit-box-flex: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
     padding: 0 10px;
   }
+
   .history_wrap .history_box .hist_con .hist_mid .tx_id {
     font-size: 0.9rem;
     text-overflow: ellipsis;
@@ -1568,19 +1684,23 @@ header .logout_wrap {
     width: 140px;
     white-space: nowrap;
   }
+
   .history_wrap .history_box .hist_con .hist_mid .hist_date {
     width: auto;
     color: inherit;
     font-weight: 300;
     font-size: 0.7rem;
   }
+
   .history_wrap .history_box .hist_con .hist_right .hist_value {
     width: auto;
     font-size: 0.9rem;
   }
+
   .history_wrap .history_box .hist_con .hist_right .hist_won {
     font-size: 0.8rem;
   }
+
   .history_wrap .history_box .hist_con img {
     width: 18px;
   }

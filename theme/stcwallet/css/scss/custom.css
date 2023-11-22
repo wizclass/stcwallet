@@ -1,29 +1,35 @@
 @charset "UTF-8";
+
 /*스테이킹 컬러셋 6개만 사용 */
 @-webkit-keyframes slidein {
   from {
     margin-top: 50px;
     opacity: 0.7;
   }
+
   to {
     margin-top: 0;
     opacity: 1;
   }
 }
+
 @keyframes slidein {
   from {
     margin-top: 50px;
     opacity: 0.7;
   }
+
   to {
     margin-top: 0;
     opacity: 1;
   }
 }
+
 ::-moz-selection {
   background-color: #ffd965;
   color: #000;
 }
+
 ::selection {
   background-color: #ffd965;
   color: #000;
@@ -39,11 +45,12 @@
   background: linear-gradient(0deg, #00c8d5, #0cdbc5) !important;
   color: #fff !important;
 }
+
 .b_main:hover {
   background: -webkit-gradient(linear, left top, left bottom, from(#00c8d5), to(#00c8d5)) !important;
   background: linear-gradient(180deg, #00c8d5, #00c8d5) !important;
   -webkit-box-shadow: 0 0 1px 2px #00c8d5;
-          box-shadow: 0 0 1px 2px #00c8d5;
+  box-shadow: 0 0 1px 2px #00c8d5;
 }
 
 .b_sub {
@@ -51,11 +58,12 @@
   background: linear-gradient(0deg, #1e5ab9, #3b86ff) !important;
   color: #fff !important;
 }
+
 .b_sub:hover {
   background: -webkit-gradient(linear, left bottom, left top, from(#1e5ab9), to(#1e5ab9)) !important;
   background: linear-gradient(0deg, #1e5ab9, #1e5ab9) !important;
   -webkit-box-shadow: 0 0 1px 2px #1e5ab9;
-          box-shadow: 0 0 1px 2px #1e5ab9;
+  box-shadow: 0 0 1px 2px #1e5ab9;
 }
 
 .b_third {
@@ -79,8 +87,9 @@ a.btn_secondary,
   -webkit-transition: all 1s;
   transition: all 1s;
   -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
-          box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
 }
+
 a.btn_secondary:hover,
 .btn_secondary:hover {
   background: white;
@@ -91,29 +100,31 @@ a.btn_primary,
 .btn_primary,
 .btn.btn_primary {
   color: white;
-  background: -webkit-gradient(linear, right top, left top, from(#00c8d5), to(#0cdbc5));
-  background: linear-gradient(to left, #00c8d5, #0cdbc5);
+  background: -webkit-gradient(linear, right top, left top, from(#1d5597), to(#003680));
+  background: linear-gradient(to left, #1d5597, #1d5597);
   -webkit-transition: all 1s;
   transition: all 1s;
   -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
-          box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
+  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.2);
 }
+
 a.btn_primary:hover,
 .btn_primary:hover,
 .btn.btn_primary:hover {
   color: white;
-  background: -webkit-gradient(linear, right top, left top, from(#00c8d5), to(#00c8d5));
-  background: linear-gradient(to left, #00c8d5, #00c8d5);
+  background: -webkit-gradient(linear, right top, left top, from(#1d5597), to(#003680));
+  background: linear-gradient(to left, #1d5597, #1d5597);
 }
 
 a.btn_cancle,
 .btn_cancle {
   -webkit-box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
-          box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
+  box-shadow: 0px 1px 3px rgba(49, 104, 116, 0.05);
   color: black;
   border-radius: 3px;
   background: #fff;
 }
+
 a.btn_cancle:hover,
 .btn_cancle:hover {
   color: #0cdbc5;
@@ -134,9 +145,10 @@ a.btn_cancle:hover,
   background: #29386b !important;
   color: #fff;
 }
+
 .b_darkblue:hover {
   -webkit-box-shadow: 0 0 1px 1px #25335f;
-          box-shadow: 0 0 1px 1px #25335f;
+  box-shadow: 0 0 1px 1px #25335f;
   background: #202c52 !important;
 }
 
@@ -144,9 +156,10 @@ a.btn_cancle:hover,
   background: #3b86ff !important;
   color: #fff;
 }
+
 .b_skyblue:hover {
   -webkit-box-shadow: 0 0 1px 1px #162d55;
-          box-shadow: 0 0 1px 1px #162d55;
+  box-shadow: 0 0 1px 1px #162d55;
   background: #224d93 !important;
 }
 
@@ -165,21 +178,25 @@ a.btn_cancle:hover,
 .history_latest {
   line-height: 24px;
 }
+
 .history_latest .card_title_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
+
 .history_latest .card_title {
   margin-bottom: 15px;
 }
+
 .history_latest .category {
   padding: 0 10px;
   font-size: 12px;
 }
+
 .history_latest .price {
   color: #3b86ff;
   font-size: 13px;
@@ -191,17 +208,20 @@ a.btn_cancle:hover,
   line-height: 24px;
   font-size: 12px;
 }
+
 .regist_latest .card_title_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
+
 .regist_latest .card_title {
   margin-bottom: 15px;
 }
+
 .regist_latest .id {
   font-size: 14px;
   display: inline-block;
@@ -209,6 +229,7 @@ a.btn_cancle:hover,
   font-weight: 600;
   margin: 0 10px;
 }
+
 .regist_latest .badge {
   font-weight: 500;
 }
@@ -272,10 +293,12 @@ strong {
   border-radius: 15px;
   margin: 0;
 }
+
 .adm_btn i {
   font-size: 16px;
   margin-right: 3px;
 }
+
 .adm_btn:hover {
   background: #d9b000;
 }
@@ -289,37 +312,46 @@ strong {
   display: block;
   border-radius: 50%;
 }
+
 .user_icon i {
   font-weight: 300;
   vertical-align: top;
 }
+
 .user_icon.lv0 {
   color: white;
 }
+
 .user_icon.lv1 {
   background: #2b3a6d;
   color: white;
 }
+
 .user_icon.lv2 {
   background: #61b5ff;
   color: #1a4158;
 }
+
 .user_icon.lv3 {
   background: red;
   color: white;
 }
+
 .user_icon.lv4 {
   background: green;
   color: white;
 }
+
 .user_icon.lv5 {
   background: black;
   color: gold;
 }
+
 .user_icon.lv9 {
   background: black;
   color: white;
 }
+
 .user_icon.lv10 {
   background: black;
   color: white;
@@ -340,6 +372,7 @@ strong {
 #mining .myitemform {
   display: contents;
 }
+
 #mining h3.title {
   margin: 20px 0 0px;
   vertical-align: middle;
@@ -349,24 +382,29 @@ strong {
   padding-left: 10px;
   display: inline-block;
 }
+
 #mining .all_view {
   float: right;
   background: white;
   margin-top: 15px;
 }
+
 #mining .all_view:hover {
   background: #492191;
   color: white;
 }
+
 #mining .mining_wrap {
   margin: 20px 0 0 0;
 }
+
 #mining .mining_ico {
   height: 40px;
   width: 40px;
   vertical-align: middle;
   margin: 0 auto;
 }
+
 #mining .mining_ico s img {
   width: 100%;
   height: 100%;
@@ -381,37 +419,43 @@ strong {
   cursor: pointer;
   border: 1px solid #fdeda5;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
+
 #mining_swap .pop_btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: black;
 }
+
 #mining_swap .pop_btn div {
   display: inline-block;
 }
+
 #mining_swap .pop_btn .wallet_title {
   font-weight: 600;
   font-size: 16px;
 }
+
 #mining_swap .pop_btn .max_with {
   margin-left: 10px;
   font-size: 11px;
 }
+
 #mining_swap .pop_btn .caret_box {
   vertical-align: top;
   float: right;
   -webkit-box-flex: 3;
   -ms-flex-positive: 3;
-      flex-grow: 3;
+  flex-grow: 3;
   vertical-align: top;
   text-align: right;
 }
+
 #mining_swap .pop_btn .caret_box i {
   font-size: 16px;
 }
@@ -419,78 +463,95 @@ strong {
 #mining_withdraw {
   background: #ec2b38;
 }
+
 #mining_withdraw .polding_btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: white;
   cursor: pointer;
 }
+
 #mining_withdraw .polding_btn div {
   display: inline-block;
 }
+
 #mining_withdraw .polding_btn .wallet_title {
   font-weight: 600;
   font-size: 16px;
 }
+
 #mining_withdraw .polding_btn .max_with {
   margin-left: 10px;
   font-size: 11px;
 }
+
 #mining_withdraw .polding_btn .caret_box {
   vertical-align: top;
   float: right;
   -webkit-box-flex: 3;
   -ms-flex-positive: 3;
-      flex-grow: 3;
+  flex-grow: 3;
   vertical-align: top;
   text-align: right;
 }
+
 #mining_withdraw .polding_btn .caret_box i {
   font-size: 16px;
 }
+
 #mining_withdraw.open {
   background: white;
 }
+
 #mining_withdraw.open .polding_btn {
   color: black;
 }
+
 #mining_withdraw.open .polding_btn .caret_box .btn {
   background: #f4f1f5;
   border-radius: 5px;
 }
+
 #mining_withdraw .input_shift_value .button_wrap {
   float: right;
 }
+
 #mining_withdraw .input_shift_value .currency-right {
   margin-top: 14px;
   margin-right: 10px;
 }
+
 #mining_withdraw .input_shift_value .fee {
   font-size: 13px;
   margin-bottom: 10px;
   margin-top: -5px;
 }
+
 #mining_withdraw .input_shift_value .fee #active_amt,
 #mining_withdraw .input_shift_value .fee #fee_val {
   color: #ec2b38;
 }
+
 #mining_withdraw .input_shift_value .fee i {
   font-size: 18px;
   color: #ec2b38;
 }
+
 #mining_withdraw .hidden {
   display: none;
 }
+
 #mining_withdraw .polding .comment {
   float: right;
   font-size: 11px;
   line-height: 30px;
   color: red;
 }
+
 #mining_withdraw #withdrawal_btn {
   background: #ec2b38;
   color: white;
@@ -501,29 +562,36 @@ strong {
   text-align: right;
   color: #29386b;
 }
+
 #mining_history .hist_tit {
   color: #29386b;
 }
+
 #mining_history ul {
   margin-top: 15px;
   border-top: 1px dashed #e1e1e1;
   padding: 15px 0;
   margin: 0;
 }
+
 #mining_history ul li {
   padding: 0;
 }
+
 #mining_history .badge {
   background: #eff3f9;
   color: white;
   font-weight: 300;
 }
+
 #mining_history .hist_td {
   line-height: 30px;
 }
+
 #mining_history .hist_value {
   font-size: 12px;
 }
+
 #mining_history .hist_rec {
   font-size: 11px;
   color: #767676;
@@ -533,35 +601,43 @@ strong {
   padding: 15px 0;
   display: grid;
 }
+
 #mining_amt_log .hist_tit {
   width: 100%;
   color: #29386b;
 }
+
 #mining_amt_log .mymining_total {
   color: #29386b;
 }
+
 #mining_amt_log ul li span {
   display: inline-block;
   line-height: 26px;
   font-size: 12px;
   float: left;
 }
+
 #mining_amt_log .amt_total {
   color: #ec2b38;
   font-weight: 600;
   font-size: 13px;
 }
+
 #mining_amt_log .amt {
   font-size: 13px;
 }
+
 #mining_amt_log .hist_bank {
   color: black;
   border-radius: 5px;
   width: inherit;
 }
+
 #mining_amt_log .result {
   font-size: 15px;
 }
+
 #mining_amt_log i {
   font-size: 18px;
   margin-right: 5px;
@@ -569,6 +645,7 @@ strong {
   vertical-align: sub;
   color: #333;
 }
+
 #mining_amt_log p {
   display: inline-block;
 }
@@ -601,13 +678,16 @@ strong {
   font-size: 13px;
   border-bottom: 4px solid #073a69;
 }
+
 .content-box.mining_history {
   font-size: 13px;
   border-left: 4px solid #073a69;
 }
+
 .content-box .m_hist_exp {
   font-size: 11px;
 }
+
 .content-box .hist_value2 {
   font-size: 13px;
 }
@@ -621,6 +701,7 @@ strong {
   display: -ms-flexbox;
   display: flex;
 }
+
 .mypool #minings .nav_set ul .nav {
   display: inline-block;
   font-size: 13px;
@@ -629,30 +710,37 @@ strong {
   text-align: center;
   cursor: pointer;
 }
+
 .mypool #minings .nav_set ul .nav.active {
   border-bottom: 2px solid blue;
 }
+
 .mypool #minings .nav_con {
   display: none;
   -webkit-animation: slidein 0.5s ease-out;
-          animation: slidein 0.5s ease-out;
+  animation: slidein 0.5s ease-out;
 }
+
 .mypool #minings .nav_con.active {
   display: block;
 }
+
 .mypool #minings .box-header {
   display: block;
 }
+
 .mypool #minings .box-body ul {
   margin: 15px 0;
   border-bottom: 2px dotted #ccc;
   padding-bottom: 10px;
 }
+
 .mypool #minings .box-body ul .date {
   font-size: 12px;
   letter-spacing: -0.5px;
   color: #0c4ddf;
 }
+
 .mypool #minings .box-body ul .mining {
   font-size: 17px;
   font-weight: 700;
@@ -660,10 +748,12 @@ strong {
   line-height: 30px;
   color: #1a1a1a;
 }
+
 .mypool #minings .box-body ul .rec_adm {
   font-size: 11px;
   color: #777;
 }
+
 .mypool #minings .box-body .from_id {
   font-size: 14px;
   color: #333;
@@ -674,20 +764,25 @@ strong {
   font-family: Montserrat, Arial, sans-serif;
   border-right: 2px solid #222;
 }
+
 .mypool #minings .sparkline {
   width: 100%;
 }
+
 .mypool #minings .comp {
   font-size: 16px;
   color: #666;
   padding: 0 5px;
 }
+
 .mypool #minings .comp.plus {
   color: red;
 }
+
 .mypool #minings .comp.minus {
   color: blue;
 }
+
 .mypool #minings .point {
   font-size: 16px;
   font-weight: 700;
@@ -698,6 +793,7 @@ strong {
   background: #fece00;
   display: inline-block;
 }
+
 .mypool #minings .btn *.ad_btn {
   letter-spacing: -0.5px;
   margin-bottom: -10px;
@@ -705,6 +801,7 @@ strong {
   padding: 5px 8px 4px !important;
   font-size: 13px !important;
 }
+
 .mypool #minings .ad_btn i {
   vertical-align: middle;
 }
@@ -718,26 +815,29 @@ strong {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  -ms-flex-pack: left;
+  justify-content: left;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
 .checkbox-group .checkbox {
   padding-right: 0.2rem;
   width: 50%;
 }
-.checkbox-group .checkbox + .checkbox {
+
+.checkbox-group .checkbox+.checkbox {
   padding-right: 0;
   padding-left: 0.2rem;
 }
+
 .checkbox-group .checkbox-wrapper {
   width: 100%;
 }
@@ -745,38 +845,43 @@ strong {
 .checkbox-input {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
   width: 1px;
 }
-.checkbox-input:checked + .checkbox-tile {
+
+.checkbox-input:checked+.checkbox-tile {
   border-color: #2260ff;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #2260ff;
 }
-.checkbox-input:checked + .checkbox-tile:before {
+
+.checkbox-input:checked+.checkbox-tile:before {
   -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   opacity: 1;
   background-color: #2260ff;
   border-color: #2260ff;
 }
-.checkbox-input:checked + .checkbox-tile .checkbox-icon,
-.checkbox-input:checked + .checkbox-tile .checkbox-label {
+
+.checkbox-input:checked+.checkbox-tile .checkbox-icon,
+.checkbox-input:checked+.checkbox-tile .checkbox-label {
   color: #2260ff;
 }
-.checkbox-input:focus + .checkbox-tile {
+
+.checkbox-input:focus+.checkbox-tile {
   border-color: #2260ff;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 4px #b5c9fc;
 }
-.checkbox-input:focus + .checkbox-tile:before {
+
+.checkbox-input:focus+.checkbox-tile:before {
   -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   opacity: 1;
 }
 
@@ -786,20 +891,20 @@ strong {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 10px 16px 10px 16px;
   border-radius: 0.5rem;
   border: 2px solid #b5bfd9;
   background-color: #fff;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   -webkit-transition: 0.15s ease;
   transition: 0.15s ease;
   cursor: pointer;
@@ -808,6 +913,7 @@ strong {
   color: black;
   font-weight: 600;
 }
+
 .checkbox-tile:before {
   content: "";
   position: absolute;
@@ -821,7 +927,7 @@ strong {
   left: 0.25rem;
   opacity: 0;
   -webkit-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='192' height='192' fill='%23FFFFFF' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' fill='none'%3E%3C/rect%3E%3Cpolyline points='216 72.005 104 184 48 128.005' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'%3E%3C/polyline%3E%3C/svg%3E");
@@ -829,12 +935,14 @@ strong {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
+
 .checkbox-tile.active:hover {
   border-color: #2260ff;
 }
+
 .checkbox-tile.active:hover:before {
   -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   opacity: 1;
 }
 
@@ -843,6 +951,7 @@ strong {
   transition: 0.375s ease;
   color: #494949;
 }
+
 .checkbox-icon img {
   width: 44px;
   height: 44px;
@@ -911,9 +1020,11 @@ input:-webkit-autofill:active {
   .upstairs .it_price {
     font-size: 16px;
   }
+
   .history_latest .card_title {
     width: 220px;
   }
+
   .regist_latest .card_title {
     width: 220px;
   }
