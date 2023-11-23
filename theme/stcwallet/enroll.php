@@ -35,13 +35,13 @@ $marketing_term = get_write("g5_write_agreement", 3);
 
 				<!-- <div class='in_btn_ly'><input type="button" id='win_hp_cert' class='btn_round check hp_cert' value="휴대폰 본인인증" style="width:80px;"></div> -->
 
-				<input type="button" id='win_hp_cert' class='btn btn_wd btn_primary hp_cert' value="휴대폰 본인인증" style="width:100%;">
+				<!-- <input type="button" id='win_hp_cert' class='btn btn_wd btn_primary hp_cert' value="휴대폰 본인인증" style="width:100%;"> -->
 
 				<input type="text" name="mb_name" style='padding:15px;display:none;' id="reg_mb_name" required placeholder="이름" />
 				<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px;display:none;' readonly placeholder="휴대폰번호" />
 				<input type="email" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디 (이메일형식)" />
 				<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
-				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="이메일 인증"></div>
+				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="중복확인"></div>
 
 
 
