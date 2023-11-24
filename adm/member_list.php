@@ -10,7 +10,7 @@ $get_shop_item = get_shop_item();
 
 
 
-	$sql_target = 'g5_member';
+$sql_target = 'g5_member';
 
 $sub_sql = "";
 
@@ -42,11 +42,11 @@ if ($stx) {
 			$sql_search .= " ({$sfl} >= '{$stx}') ";
 			break;
 		case 'mb_level':
-			if($stx == '일반회원') {
+			if ($stx == '일반회원') {
 				$memer_level = 0;
-			} else if($stx == '정회원') {
+			} else if ($stx == '정회원') {
 				$memer_level = 1;
-			} else if($stx == '정회원S' || $stx == '정회원s') {
+			} else if ($stx == '정회원S' || $stx == '정회원s') {
 				$memer_level = 2;
 			}
 			$sql_search .= " ({$sfl} = '{$memer_level}') ";
@@ -90,9 +90,9 @@ $row = sql_fetch($sql);
 $total_count = $row['cnt'];
 
 // $rows = $config['cf_page_rows'];
-if($_GET['range'] == 'all'){
+if ($_GET['range'] == 'all') {
 	$range = $total_count;
-}else{
+} else {
 	$range = 50;
 }
 $rows = $range;
@@ -134,7 +134,7 @@ GROUP BY mb_id";
 $total_staking_member_result = sql_query($total_staking_member_sql);
 
 $total_staking_member = array();
-for($i = 0; $i < $row = sql_fetch_array($total_staking_member_result); $i++){
+for ($i = 0; $i < $row = sql_fetch_array($total_staking_member_result); $i++) {
 	$total_staking_member[$row['mb_id']] = $row['staking'];
 }
 
@@ -142,7 +142,7 @@ $total_purchase_giftcard_sql = "SELECT mb_id, SUM(price_coin) AS purchase FROM w
 $total_purchase_giftcard_result = sql_query($total_purchase_giftcard_sql);
 
 $total_purchase_member = array();
-for($i = 0; $i < $row = sql_fetch_array($total_purchase_giftcard_result); $i++){
+for ($i = 0; $i < $row = sql_fetch_array($total_purchase_giftcard_result); $i++) {
 	$total_purchase_member[$row['mb_id']] = $row['purchase'];
 }
 
@@ -228,8 +228,9 @@ $stats_result = sql_fetch($stats_sql);
 	#stx {
 		padding: 5px;
 	}
-	.local_sch{
-		display:contents;
+
+	.local_sch {
+		display: contents;
 	}
 
 	.local_sch .btn_submit {
@@ -241,19 +242,35 @@ $stats_result = sql_fetch($stats_sql);
 		color: blue !important;
 		font-weight: 600
 	}
-	.icon,.icon img{width:26px;height:26px;font-size:18px;}
 
-	.badge.over{    position: absolute;
-    padding: 2px 5px;
-    background: #eee;
-    font-size: 12px;
-	margin-left:-10px;
-	margin-top:12px;
-    display: inline-block;
-    font-weight: 600;
-    color: black;}
-	.icon{display:inline-block;vertical-align: bottom;}
-	.icon i{vertical-align: -webkit-baseline-middle;}
+	.icon,
+	.icon img {
+		width: 26px;
+		height: 26px;
+		font-size: 18px;
+	}
+
+	.badge.over {
+		position: absolute;
+		padding: 2px 5px;
+		background: #eee;
+		font-size: 12px;
+		margin-left: -10px;
+		margin-top: 12px;
+		display: inline-block;
+		font-weight: 600;
+		color: black;
+	}
+
+	.icon {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+
+	.icon i {
+		vertical-align: -webkit-baseline-middle;
+	}
+
 	#member_depth {
 		background: lightskyblue
 	}
@@ -370,9 +387,13 @@ $stats_result = sql_fetch($stats_sql);
 	.td_mbgrade select {
 		min-width: 50px;
 		padding: 5px 5px;
-		color:#777;
+		color: #777;
 	}
-	.tbl_head02 tbody{color:#777;}
+
+	.tbl_head02 tbody {
+		color: #777;
+	}
+
 	.tbl_head02 tbody td {
 		padding: 5px;
 	}
@@ -406,7 +427,7 @@ $stats_result = sql_fetch($stats_sql);
 	.btn_add01 {
 		padding-bottom: 10px;
 		border-bottom: 1px solid #bbb;
-		text-align:left;
+		text-align: left;
 	}
 
 	.center {
@@ -419,14 +440,15 @@ $stats_result = sql_fetch($stats_sql);
 	}
 
 	.td_name {
-		font-size:12px;
+		font-size: 12px;
 		min-width: 70px;
 		width: 70px;
 	}
 
-	.td_id{
-		font-size:12px;
+	.td_id {
+		font-size: 12px;
 	}
+
 	.bonus_eth a {
 		color: white !important
 	}
@@ -441,7 +463,12 @@ $stats_result = sql_fetch($stats_sql);
 		width: 26px;
 		height: 26px;
 	}
-	.grade_icon{width:22px;height:22px;opacity: 0.75;}
+
+	.grade_icon {
+		width: 22px;
+		height: 22px;
+		opacity: 0.75;
+	}
 
 	.badge.over {
 		position: absolute;
@@ -455,29 +482,50 @@ $stats_result = sql_fetch($stats_sql);
 		color: black;
 	}
 
-	.strong{font-weight:600;color:black;}
+	.strong {
+		font-weight: 600;
+		color: black;
+	}
 
 	.td_mbstat {
 		text-align: right;
 		padding-right: 10px !important;
 		font-size: 12px;
 		width: 75px;
-		color:#333;
+		color: #333;
 	}
-	.td_index{
-		min-width:40px;width:40px;text-align:center !important;
-	}
-	.td_grade{
-		width:30px;min-width:30px;
-	}
-	.user_icon i{
-		vertical-align:-webkit-baseline-middle !important;
-	}
-	.no-swap{display:block;color:#bbb;font-size:11px;font-weight:300;width:100%;margin:0;padding:0;line-height:10px;}
 
-	.before_eth{border-right:1px solid #333 !important}
+	.td_index {
+		min-width: 40px;
+		width: 40px;
+		text-align: center !important;
+	}
+
+	.td_grade {
+		width: 30px;
+		min-width: 30px;
+	}
+
+	.user_icon i {
+		vertical-align: -webkit-baseline-middle !important;
+	}
+
+	.no-swap {
+		display: block;
+		color: #bbb;
+		font-size: 11px;
+		font-weight: 300;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		line-height: 10px;
+	}
+
+	.before_eth {
+		border-right: 1px solid #333 !important
+	}
 </style>
-<link rel="stylesheet" href="<?=G5_THEME_URL?>/css/scss/custom.css">
+<link rel="stylesheet" href="<?= G5_THEME_URL ?>/css/scss/custom.css">
 <style>
 
 </style>
@@ -519,39 +567,40 @@ $stats_result = sql_fetch($stats_sql);
 <div class="local_ov01 local_ov">
 	<?php echo $listall ?>
 	총회원수 <strong><?php echo number_format($total_count) ?></strong> 명::
-	
-<?
-function get_level_title($level){
-	if($level == 0){
-		echo "일반회원";
-	}else if($level == 1){
-		echo "정회원";
-	}else if($level == 2){
-		echo "정회원S";
-	}else{
-		echo "관리자";
-	}
-}
 
-$i = 0;
-while ($l_row = sql_fetch_array($get_lc)) {
-	echo  get_level_title($l_row['mb_level'])." : <a href='' style='margin:0;font-weight:600'>".number_format($l_row['cnt'])."</a> 명 | ";
-	++$i;
-} ?>
+	<?
+	function get_level_title($level)
+	{
+		if ($level == 0) {
+			echo "일반회원";
+		} else if ($level == 1) {
+			echo "정회원";
+		} else if ($level == 2) {
+			echo "정회원S";
+		} else {
+			echo "관리자";
+		}
+	}
+
+	$i = 0;
+	while ($l_row = sql_fetch_array($get_lc)) {
+		echo  get_level_title($l_row['mb_level']) . " : <a href='' style='margin:0;font-weight:600'>" . number_format($l_row['cnt']) . "</a> 명 | ";
+		++$i;
+	} ?>
 
 	<?
 	if ($member['mb_id'] == 'admin' || $member['mb_id'] == "admins") {
-		echo "<br><span class='bonus' style='margin:0;'>총 입금 합계 <strong>" .shift_auto($stats_result['deposit'],ASSETS_CURENCY). " " .ASSETS_CURENCY. " </strong></span> | ";
-		
-		echo "<div class='bonus'>스테이킹 누적 보너스<strong>(".strtoupper($minings[0]).")</strong><span>:<strong>" . shift_auto($stats_result['balance'],ASSETS_CURENCY) .' '.strtoupper($minings[0])." </strong></span> | ";
-		echo "<span>출금 가능 : <span class='f_blue'>" . shift_auto($stats_result['able_with'],ASSETS_CURENCY) .' '.strtoupper($minings[0])."  </span></span></div> ";
+		echo "<br><span class='bonus' style='margin:0;'>총 입금 합계 <strong>" . shift_auto($stats_result['deposit'], ASSETS_CURENCY) . " " . ASSETS_CURENCY . " </strong></span> | ";
 
-		echo "<div class='bonus mining'>스테이킹 누적 보너스<strong>(".strtoupper($minings[1]).")</strong><span>:<strong>" . shift_auto($stats_result['mining_total']) .' '.strtoupper($minings[1])." </strong></span> | ";
-		echo "<span>출금 가능 : <span class='f_blue'>" . shift_auto($stats_result['able_mining']) .' '.strtoupper($minings[1])."  </span></span></div> ";
+		echo "<div class='bonus'>스테이킹 누적 보너스<strong>(" . strtoupper($minings[0]) . ")</strong><span>:<strong>" . shift_auto($stats_result['balance'], ASSETS_CURENCY) . ' ' . strtoupper($minings[0]) . " </strong></span> | ";
+		echo "<span>출금 가능 : <span class='f_blue'>" . shift_auto($stats_result['able_with'], ASSETS_CURENCY) . ' ' . strtoupper($minings[0]) . "  </span></span></div> ";
+
+		echo "<div class='bonus mining'>스테이킹 누적 보너스<strong>(" . strtoupper($minings[1]) . ")</strong><span>:<strong>" . shift_auto($stats_result['mining_total']) . ' ' . strtoupper($minings[1]) . " </strong></span> | ";
+		echo "<span>출금 가능 : <span class='f_blue'>" . shift_auto($stats_result['able_mining']) . ' ' . strtoupper($minings[1]) . "  </span></span></div> ";
 	}
 	?>
 	<br>
-	
+
 </div>
 
 
@@ -566,39 +615,39 @@ while ($l_row = sql_fetch_array($get_lc)) {
 <?php if ($is_admin == 'super') { ?>
 	<div class="btn_add01 btn_add">
 
-	<form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
-		<label for="sfl" class="sound_only">검색대상</label>
-		<select name="sfl" id="sfl">
-			<option value="all" <?php echo get_selected($_GET['sfl'], "all"); ?>>전체</option>
-			<option value="mb_id" <?php echo get_selected($_GET['sfl'], "mb_id"); ?>>회원아이디</option>
-			<!-- <option value="mb_nick"<?php echo get_selected($_GET['sfl'], "mb_nick"); ?>>닉네임</option> -->
-			<option value="mb_name" <?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option>
-			<!-- <option value="mb_level"<?php echo get_selected($_GET['sfl'], "mb_level"); ?>>권한</option>
+		<form id="fsearch" name="fsearch" class="local_sch01 local_sch" method="get">
+			<label for="sfl" class="sound_only">검색대상</label>
+			<select name="sfl" id="sfl">
+				<option value="all" <?php echo get_selected($_GET['sfl'], "all"); ?>>전체</option>
+				<option value="mb_id" <?php echo get_selected($_GET['sfl'], "mb_id"); ?>>회원아이디</option>
+				<!-- <option value="mb_nick"<?php echo get_selected($_GET['sfl'], "mb_nick"); ?>>닉네임</option> -->
+				<option value="mb_name" <?php echo get_selected($_GET['sfl'], "mb_name"); ?>>이름</option>
+				<!-- <option value="mb_level"<?php echo get_selected($_GET['sfl'], "mb_level"); ?>>권한</option>
 			<option value="mb_email"<?php echo get_selected($_GET['sfl'], "mb_email"); ?>>E-MAIL</option> -->
-			<!-- <option value="mb_tel"<?php echo get_selected($_GET['sfl'], "mb_tel"); ?>>전화번호</option> -->
-			<option value="mb_hp" <?php echo get_selected($_GET['sfl'], "mb_hp"); ?>>휴대폰번호</option>
-			<!-- <option value="mb_point"<?php echo get_selected($_GET['sfl'], "mb_point"); ?>>PV</option> -->
-			<option value="mb_datetime" <?php echo get_selected($_GET['sfl'], "mb_datetime"); ?>>가입일시</option>
-			<option value="mb_ip" <?php echo get_selected($_GET['sfl'], "mb_ip"); ?>>IP</option>
-			<option value="mb_level" <?php echo get_selected($_GET['sfl'], "mb_level"); ?>>회원등급</option>
-			<!-- <option value="mb_recommend" <?php echo get_selected($_GET['sfl'], "mb_recommend"); ?>>추천인</option> -->
-			<!-- <option value="mb_wallet"<?php echo get_selected($_GET['sfl'], "mb_wallet"); ?>>지갑</option> -->
-		</select>
+				<!-- <option value="mb_tel"<?php echo get_selected($_GET['sfl'], "mb_tel"); ?>>전화번호</option> -->
+				<option value="mb_hp" <?php echo get_selected($_GET['sfl'], "mb_hp"); ?>>휴대폰번호</option>
+				<!-- <option value="mb_point"<?php echo get_selected($_GET['sfl'], "mb_point"); ?>>PV</option> -->
+				<option value="mb_datetime" <?php echo get_selected($_GET['sfl'], "mb_datetime"); ?>>가입일시</option>
+				<option value="mb_ip" <?php echo get_selected($_GET['sfl'], "mb_ip"); ?>>IP</option>
+				<option value="mb_level" <?php echo get_selected($_GET['sfl'], "mb_level"); ?>>회원등급</option>
+				<!-- <option value="mb_recommend" <?php echo get_selected($_GET['sfl'], "mb_recommend"); ?>>추천인</option> -->
+				<!-- <option value="mb_wallet"<?php echo get_selected($_GET['sfl'], "mb_wallet"); ?>>지갑</option> -->
+			</select>
 
-		<label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-		<input type="text" name="stx" value="<?php echo $stx ?>" id="stx" class="required frm_input" required>
-		<input type="submit" class="btn_submit" value="검색">
-	</form>	
+			<label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+			<input type="text" name="stx" value="<?php echo $stx ?>" id="stx" class="required frm_input" required>
+			<input type="submit" class="btn_submit" value="검색">
+		</form>
 
 		<!-- <a href="./member_table_depth.php" id="member_depth">회원추천/직추천갱신</a>
 		<a href="./member_table_fixtest.php">추천관계검사</a> -->
 		<a href="./del_member_list.php">삭제/탈퇴 회원보기</a>
 		<a href="./member_form.php" id="member_add">회원직접추가</a>
-		<?if($range == 'all'){?>
-			<a href="./member_list.php?range=" >회원전체보기</a>
-		<?}else{?>
-			<a href="./member_list.php?range=all" >회원전체보기</a>
-		<?}?>
+		<? if ($range == 'all') { ?>
+			<a href="./member_list.php?range=">회원전체보기</a>
+		<? } else { ?>
+			<a href="./member_list.php?range=all">회원전체보기</a>
+		<? } ?>
 		<a id="btnExport" data-name='member_info' class="excel" style="padding:10px 10px;">엑셀 다운로드</a>
 	</div>
 <?php } ?>
@@ -607,10 +656,10 @@ while ($l_row = sql_fetch_array($get_lc)) {
 
 <form name="fmemberlist" id="fmemberlist" action="./member_list_update.php" onsubmit="return fmemberlist_submit(this);" method="post">
 
-<div class="btn_list01 btn_list">
+	<div class="btn_list01 btn_list">
 		<input type="submit" name="act_button" value="선택수정" onclick="document.pressed=this.value">
 		<input type="submit" name="act_button" value="선택삭제" onclick="document.pressed=this.value">
-</div>
+	</div>
 
 	<input type="hidden" name="sst" value="<?php echo $sst ?>">
 	<input type="hidden" name="sod" value="<?php echo $sod ?>">
@@ -632,21 +681,21 @@ while ($l_row = sql_fetch_array($get_lc)) {
 					<th scope="col" id="mb_list_authcheck" style='min-width:130px;' rowspan="2"><?php echo subject_sort_link('mb_level', '', 'desc') ?>등급</a></th>
 					<th scope="col" rowspan="2" id="mb_list_id" class="td_name center"><?php echo subject_sort_link('mb_id') ?>아이디/회원상세내역</a></th>
 					<th scope="col" rowspan="2" id="mb_list_id" class="td_name center"><?php echo subject_sort_link('mb_name') ?>이름</a></th>
-					<?if($mode=='del'){?><th scope="col" rowspan="2" id="mb_list_member" class="td_leave_date"><?php echo subject_sort_link('mb_name') ?>탈퇴일</a></th><?}?>
-					<th scope="col" id="mb_list_auth" class="bonus_eth" rowspan="2"><?php echo subject_sort_link('total_fund') ?>총 <?=ASSETS_CURENCY?> 잔고<br></a></th>
-					<th scope="col" id="mb_list_auth2" class="bonus_calc" rowspan="2"><?php echo subject_sort_link('deposit_point') ?>총입금  <br></th>
-					<th scope="col" id="mb_list_auth2" class="bonus_bb" rowspan="2">총 상품권 구매<br>(+수수료)</th>
-					
+					<? if ($mode == 'del') { ?><th scope="col" rowspan="2" id="mb_list_member" class="td_leave_date"><?php echo subject_sort_link('mb_name') ?>탈퇴일</a></th><? } ?>
+					<th scope="col" id="mb_list_auth" class="bonus_eth" rowspan="2"><?php echo subject_sort_link('total_fund') ?>총 <?= ASSETS_CURENCY ?> 잔고<br></a></th>
+					<th scope="col" id="mb_list_auth2" class="bonus_calc" rowspan="2"><?php echo subject_sort_link('deposit_point') ?>총입금 <br></th>
+					<!-- <th scope="col" id="mb_list_auth2" class="bonus_bb" rowspan="2">총 상품권 구매<br>(+수수료)</th> -->
+
 
 					<!-- <th scope="col" id="mb_list_auth2" class="bonus_bb" rowspan="2">상품권구매<br>(+수수료)</th> -->
 					<th scope="col" id="mb_list_auth2" class="bonus_bb bonus_benefit" rowspan="2">총 스테이킹 구매<br>(+수수료)</th>
 					<!-- <th scope="col" id="mb_list_auth2" class="bonus_bb bonus_benefit" rowspan="2">스테이킹<br>수수료<br></th> -->
-					<th scope="col" id="mb_list_auth2" class="" rowspan="2"><?php echo subject_sort_link('mb_balance') ?> 누적 보너스<br><?=ASSETS_CURENCY?></th>
+					<th scope="col" id="mb_list_auth2" class="" rowspan="2"><?php echo subject_sort_link('mb_balance') ?> 누적 보너스<br><?= ASSETS_CURENCY ?></th>
 					<th scope="col" id="mb_list_auth2" class="bonus_usdt before_eth" style='color:white !important' rowspan="2"><?php echo subject_sort_link('mb_shift_amt') ?>총 출금<br>(+수수료)<br></th>
 
-					<th scope="col" id="mb_list_auth" class="bonus_eth" rowspan="2"><?php echo subject_sort_link('total_eth_fund') ?>총 <?=WITHDRAW_CURENCY?> 잔고<br></a></th>
-					<th scope="col" id="mb_list_auth2" class="" rowspan="2"><?php echo subject_sort_link('mb_balance_eth') ?>누적 보너스<br><?=WITHDRAW_CURENCY?></th>
-					<th scope="col" id="mb_list_auth2" class="bonus_usdt" style='color:white !important' rowspan="2"><?php echo subject_sort_link('mb_amt_eth') ?>출금<?=WITHDRAW_CURENCY?><br>(+수수료)<br></th>
+					<!-- <th scope="col" id="mb_list_auth" class="bonus_eth" rowspan="2"><?php echo subject_sort_link('total_eth_fund') ?>총 <?= WITHDRAW_CURENCY ?> 잔고<br></a></th>
+					<th scope="col" id="mb_list_auth2" class="" rowspan="2"><?php echo subject_sort_link('mb_balance_eth') ?>누적 보너스<br><?= WITHDRAW_CURENCY ?></th>
+					<th scope="col" id="mb_list_auth2" class="bonus_usdt" style='color:white !important' rowspan="2"><?php echo subject_sort_link('mb_amt_eth') ?>출금<?= WITHDRAW_CURENCY ?><br>(+수수료)<br></th> -->
 					<th scope="col" id="mb_list_member"><?php echo subject_sort_link('mb_today_login', '', 'desc') ?>최종접속</a></th>
 					<th scope="col" rowspan="2" id="mb_list_mng">관리</th>
 				</tr>
@@ -660,7 +709,7 @@ while ($l_row = sql_fetch_array($get_lc)) {
 			<tbody>
 				<?php
 				for ($i = 0; $row = sql_fetch_array($result); $i++) {
-			
+
 					// 접근가능한 그룹수
 					$sql2 = " select count(*) as cnt from {$g5['group_member_table']} where mb_id = '{$row['mb_id']}' ";
 					$row2 = sql_fetch($sql2);
@@ -736,32 +785,34 @@ while ($l_row = sql_fetch_array($get_lc)) {
 						</td>
 
 						<td headers="mb_list_member" class="td_mbgrade" rowspan="2" style="width:70px;max-width:70px;">
-							<?php echo get_member_level_select("mb_level[$i]", 0,10, $row['mb_level']) ?>
+							<?php echo get_member_level_select("mb_level[$i]", 0, 10, $row['mb_level']) ?>
 						</td>
 
-						<td headers="mb_list_id" rowspan="2" class="td_name td_id <?if($row['mb_divide_date'] != ''){echo 'red';}?>" style="min-width:140px; width:auto">
-						<a href="./member_history.php?mb_id=<?=$mb_id?>" target="_blank"><?php echo $mb_id ?></a>
+						<td headers="mb_list_id" rowspan="2" class="td_name td_id <? if ($row['mb_divide_date'] != '') {
+																																				echo 'red';
+																																			} ?>" style="min-width:140px; width:auto">
+							<a href="./member_history.php?mb_id=<?= $mb_id ?>" target="_blank"><?php echo $mb_id ?></a>
 						</td>
 						<td rowspan="2" class="td_name " style='width:70px;'><?php echo get_text($row['mb_name']); ?></td>
-		
-						
-						<?if($mode=='del'){?><th scope="col" rowspan="2" class="td_mbstat" style='letter-spacing:0;'><?=$row['mb_leave_date']?></th><?}?>
-						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($total_fund,ASSETS_CURENCY) ?></td>
-						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($row['mb_deposit_point'],ASSETS_CURENCY) ?></td>
-						<!-- <td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($row['mb_deposit_calc'],ASSETS_CURENCY) ?></td> -->
-						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?=$total_purchase_member[$row['mb_id']] ? shift_auto($total_purchase_member[$row['mb_id']],ASSETS_CURENCY)  : 0?></td>
-						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= $total_staking_member[$row['mb_id']] ? shift_auto($total_staking_member[$row['mb_id']],ASSETS_CURENCY)  : 0?></td>
-						
-						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($total_bonus,ASSETS_CURENCY) ?></td>
-						<td headers="mb_list_auth" class="td_mbstat before_eth" style='color:red' rowspan="2"><?= shift_auto($total_amt,ASSETS_CURENCY) ?></td>
+
+
+						<? if ($mode == 'del') { ?><th scope="col" rowspan="2" class="td_mbstat" style='letter-spacing:0;'><?= $row['mb_leave_date'] ?></th><? } ?>
+						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($total_fund, ASSETS_CURENCY) ?></td>
+						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($row['mb_deposit_point'], ASSETS_CURENCY) ?></td>
+						<!-- <td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($row['mb_deposit_calc'], ASSETS_CURENCY) ?></td> -->
+						<!-- <td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= $total_purchase_member[$row['mb_id']] ? shift_auto($total_purchase_member[$row['mb_id']], ASSETS_CURENCY)  : 0 ?></td> -->
+						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= $total_staking_member[$row['mb_id']] ? shift_auto($total_staking_member[$row['mb_id']], ASSETS_CURENCY)  : 0 ?></td>
+
+						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($total_bonus, ASSETS_CURENCY) ?></td>
+						<td headers="mb_list_auth" class="td_mbstat before_eth" style='color:red' rowspan="2"><?= shift_auto($total_amt, ASSETS_CURENCY) ?></td>
 
 						<!-- ETH -->
-						<td headers="mb_list_auth" class="td_mbstat " rowspan="2" ><?= shift_auto($row['mb_balance_eth'] - $row['mb_amt_eth']) ?></td>
-						<td headers="mb_list_auth" class="td_mbstat" rowspan="2" ><?= shift_auto($row['mb_balance_eth']) ?></td>
-						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= shift_auto($row['mb_amt_eth']) ?></td>
+						<!-- <td headers="mb_list_auth" class="td_mbstat " rowspan="2"><?= shift_auto($row['mb_balance_eth'] - $row['mb_amt_eth']) ?></td>
+						<td headers="mb_list_auth" class="td_mbstat" rowspan="2"><?= shift_auto($row['mb_balance_eth']) ?></td>
+						<td headers="mb_list_auth" class="td_mbstat" style='color:red' rowspan="2"><?= shift_auto($row['mb_amt_eth']) ?></td> -->
 						<td headers="mb_list_lastcall" class="td_date"><?php echo substr($row['mb_today_login'], 2, 8); ?></td>
 						<td headers="mb_list_mng" rowspan="2" class="td_mngsmall" style="width:100px;"><?php echo $s_mod ?></td>
-					
+
 					</tr>
 					<tr class="<?php echo $bg; ?>">
 						<td headers="mb_list_join" class="td_date"><?php echo substr($row['mb_datetime'], 2, 8); ?></td>
@@ -843,14 +894,13 @@ while ($l_row = sql_fetch_array($get_lc)) {
 
 	// 검색 키워드 '전체'일 경우 inputbox required 해제 처리
 	$(function() {
-		if($('#sfl').val() == 'all') {
+		if ($('#sfl').val() == 'all') {
 			$('#stx').removeAttr('required').removeClass('required');
-		} else {
-		}
+		} else {}
 	});
-	
+
 	$('#sfl').change(function() {
-		if($('#sfl').val() == 'all') {
+		if ($('#sfl').val() == 'all') {
 			$('#stx').val("");
 			$('#stx').removeAttr('required').removeClass('required');
 		} else {

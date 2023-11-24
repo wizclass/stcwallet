@@ -3,7 +3,7 @@ if (!defined('_GNUBOARD_')) exit;
 
 function empty_mb_id($reg_mb_id)
 {
-    if (trim($reg_mb_id)=='')
+    if (trim($reg_mb_id) == '')
         return "회원아이디를 입력해 주십시오.";
     else
         return "";
@@ -11,11 +11,11 @@ function empty_mb_id($reg_mb_id)
 
 function valid_mb_id($reg_mb_id)
 {
-    // if (preg_match("/[^0-9a-z]+/i", $reg_mb_id))
-    //     return "회원아이디는 영문자, 숫자 만 입력하세요.".$reg_mb_id;
-    // else
-    //     return "";
-    return valid_mb_email($reg_mb_id);
+    if (preg_match("/[^0-9a-z]+/i", $reg_mb_id))
+        return "회원아이디는 영문자, 숫자 만 입력하세요." . $reg_mb_id;
+    else
+        return "";
+    // return valid_mb_email($reg_mb_id);
 }
 
 function count_mb_id($reg_mb_id)
@@ -156,7 +156,7 @@ function empty_mb_name($reg_mb_name)
     // if (!trim($reg_mb_name))
     //     return "이름을 입력해 주십시오.";
     // else
-        return "";
+    return "";
 }
 
 function valid_mb_name($mb_name)
@@ -170,7 +170,7 @@ function valid_mb_name($mb_name)
 function valid_mb_hp($reg_mb_hp)
 {
     $reg_mb_hp = preg_replace("/[^0-9]/", "", $reg_mb_hp);
-    if(!$reg_mb_hp)
+    if (!$reg_mb_hp)
         return "휴대폰번호를 입력해 주십시오.";
     else {
         // if(preg_match("/^01[0-9]{8,9}$/", $reg_mb_hp))
@@ -194,7 +194,7 @@ function exist_mb_hp($reg_mb_hp, $reg_mb_id)
     // if($row['cnt'])
     //     return " 이미 사용 중인 휴대폰번호입니다. ".$reg_mb_hp;
     // else
-        return "";
+    return "";
 }
 
 function empty_mb_recommend($mb_recommend)
@@ -206,4 +206,3 @@ function empty_mb_recommend($mb_recommend)
 }
 
 return;
-?>

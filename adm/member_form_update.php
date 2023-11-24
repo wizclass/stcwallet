@@ -1,8 +1,8 @@
 <?php
 $sub_menu = "200100";
 include_once("./_common.php");
-include_once(G5_THEME_PATH.'/_include/wallet.php');
-include_once(G5_LIB_PATH."/register.lib.php");
+include_once(G5_THEME_PATH . '/_include/wallet.php');
+include_once(G5_LIB_PATH . "/register.lib.php");
 
 if ($w == 'u')
 	check_demo();
@@ -12,26 +12,26 @@ auth_check($auth[$sub_menu], 'w');
 //check_admin_token();
 
 $mb_id = trim($_POST['mb_id']);
-if($_POST['mb_name'] == ''){
+if ($_POST['mb_name'] == '') {
 	$mb_name = $mb_id;
-}else{
+} else {
 	$mb_name = $_POST['mb_name'];
 }
 
-$today = date("Y-m-d H:i:s",time());
-$todate = date("Y-m-d",time());
-$od_id = date("YmdHis",time());
+$today = date("Y-m-d H:i:s", time());
+$todate = date("Y-m-d", time());
+$od_id = date("YmdHis", time());
 
 // 휴대폰번호 체크
 $mb_hp = hyphen_hp_number($_POST['mb_hp']);
-if($mb_hp) {
+if ($mb_hp) {
 	$result = exist_mb_hp($mb_hp, $mb_id);
 	if ($result)
 		alert($result);
 }
 
 // 인증정보처리
-if($_POST['mb_certify_case'] && $_POST['mb_certify']) {
+if ($_POST['mb_certify_case'] && $_POST['mb_certify']) {
 	$mb_certify = $_POST['mb_certify_case'];
 	$mb_adult = $_POST['mb_adult'];
 } else {
@@ -55,26 +55,26 @@ $mb = get_member($mb_id);
 $mb_level = $mb['mb_level'];
 $temp_mb_level = $_POST['mb_level'];
 
-if($center_use > 0){
-	
-	if($_POST['mb_level'] < 2){
+if ($center_use > 0) {
+
+	if ($_POST['mb_level'] < 2) {
 		$temp_mb_level = 2;
 	}
 }
 
-if($mb_level < 10 &&  $temp_mb_level != $mb_level){
+if ($mb_level < 10 &&  $temp_mb_level != $mb_level) {
 	$mb_level = $temp_mb_level;
 }
 
-if($_POST['kyc_admin'] > ""){
+if ($_POST['kyc_admin'] > "") {
 	$kyc_admin = $_POST['kyc_admin'];
 
-	if($_POST['kyc_admin'] > 0){
-		$kyc_admin_time = $today." 관리자승인";
-	}else{
+	if ($_POST['kyc_admin'] > 0) {
+		$kyc_admin_time = $today . " 관리자승인";
+	} else {
 		$kyc_admin_time = "";
 	}
-}else{ 
+} else {
 	$kyc_admin = '';
 };
 
@@ -141,11 +141,10 @@ $sql_common = "  mb_name = '{$_POST['mb_name']}',
 				 kyc_regdt = '{$kyc_admin_time}',
 				 mb_week_dividend = '{$mb_week_dividend}' ";
 
-if ($w == '')
-{
+if ($w == '') {
 	// $mb = get_member($mb_id);
 	if ($mb['mb_id'])
-		alert('이미 존재하는 회원아이디입니다.\\nＩＤ : '.$mb['mb_id'].'\\n이름 : '.$mb['mb_name'].'\\n닉네임 : '.$mb['mb_nick'].'\\n메일 : '.$mb['mb_email']);
+		alert('이미 존재하는 회원아이디입니다.\\nＩＤ : ' . $mb['mb_id'] . '\\n이름 : ' . $mb['mb_name'] . '\\n닉네임 : ' . $mb['mb_nick'] . '\\n메일 : ' . $mb['mb_email']);
 
 	// 닉네임중복체크
 	//$sql = " select mb_id, mb_name, mb_nick, mb_email from {$g5['member_table']} where mb_nick = '{$_POST['mb_nick']}' ";
@@ -162,19 +161,16 @@ if ($w == '')
 	*/
 	$insert_member = " insert into {$g5['member_table']} 
 	set mb_id = '{$mb_id}', 
-	mb_password = '".get_encrypt_string($mb_password)."', 
-	mb_datetime = '".G5_TIME_YMDHIS."', 
+	mb_password = '" . get_encrypt_string($mb_password) . "', 
+	mb_datetime = '" . G5_TIME_YMDHIS . "', 
 	mb_ip = '{$_SERVER['REMOTE_ADDR']}', 
-	mb_email_certify = '".G5_TIME_YMDHIS."',
-	reg_tr_password = '".get_encrypt_string(CUSTOM_CURRENT_TPW)."',
+	mb_email_certify = '" . G5_TIME_YMDHIS . "',
+	reg_tr_password = '" . get_encrypt_string(CUSTOM_CURRENT_TPW) . "',
 	{$sql_common} ";
 
 	sql_query($insert_member);
 	alert('가입처리되었습니다.');
-
-}
-else if ($w == 'u')
-{
+} else if ($w == 'u') {
 	// $mb = get_member($mb_id);
 	if (!$mb['mb_id'])
 		alert('존재하지 않는 회원자료입니다.');
@@ -183,7 +179,7 @@ else if ($w == 'u')
 		alert('자신보다 권한이 높거나 같은 회원은 수정할 수 없습니다.');
 
 	if ($_POST['mb_id'] == $member['mb_id'] && $_POST['mb_level'] != $mb['mb_level'])
-		alert($mb['mb_id'].' : 로그인 중인 관리자 레벨은 수정 할 수 없습니다.');
+		alert($mb['mb_id'] . ' : 로그인 중인 관리자 레벨은 수정 할 수 없습니다.');
 
 	// 닉네임중복체크
 	//$sql = " select mb_id, mb_name, mb_nick, mb_email from {$g5['member_table']} where mb_nick = '{$_POST['mb_nick']}' and mb_id <> '$mb_id' ";
@@ -198,11 +194,11 @@ else if ($w == 'u')
 	if ($row['mb_id'])
 		alert('이미 존재하는 이메일입니다.\\nＩＤ : '.$row['mb_id'].'\\n이름 : '.$row['mb_name'].'\\n닉네임 : '.$row['mb_nick'].'\\n메일 : '.$row['mb_email']);
 	*/
-	$mb_dir = substr($mb_id,0,2);
+	$mb_dir = substr($mb_id, 0, 2);
 
 	// 회원 아이콘 삭제
 	if ($del_mb_icon)
-		@unlink(G5_DATA_PATH.'/member/'.$mb_dir.'/'.$mb_id.'.gif');
+		@unlink(G5_DATA_PATH . '/member/' . $mb_dir . '/' . $mb_id . '.gif');
 
 	// 아이콘 업로드
 	if (is_uploaded_file($_FILES['mb_icon']['tmp_name'])) {
@@ -211,10 +207,10 @@ else if ($w == 'u')
 		}
 
 		if (preg_match("/(\.gif)$/i", $_FILES['mb_icon']['name'])) {
-			@mkdir(G5_DATA_PATH.'/member/'.$mb_dir, G5_DIR_PERMISSION);
-			@chmod(G5_DATA_PATH.'/member/'.$mb_dir, G5_DIR_PERMISSION);
+			@mkdir(G5_DATA_PATH . '/member/' . $mb_dir, G5_DIR_PERMISSION);
+			@chmod(G5_DATA_PATH . '/member/' . $mb_dir, G5_DIR_PERMISSION);
 
-			$dest_path = G5_DATA_PATH.'/member/'.$mb_dir.'/'.$mb_id.'.gif';
+			$dest_path = G5_DATA_PATH . '/member/' . $mb_dir . '/' . $mb_id . '.gif';
 
 			move_uploaded_file($_FILES['mb_icon']['tmp_name'], $dest_path);
 			chmod($dest_path, G5_FILE_PERMISSION);
@@ -237,25 +233,25 @@ else if ($w == 'u')
 	$deposit_adm_content = $_POST['mb_deposit_point_content'];
 	$deposit_code = $_POST['mb_deposit_point_math'];
 	$origin_deposit_point = $mb['mb_deposit_point'];
-	
+
 	$balance_adm = conv_number($_POST['calc_mb_balance']);
 	$balance_code = $_POST['mb_balance_math'];
-	
+
 
 	$balance_eth_adm = $_POST['calc_mb_balance_eth'];
 	$balance_eth_code = $_POST['mb_balance_eth_math'];
 
 	$soodang = "insert into {$g5['mining']}(`day`,`allowance_name`,`mb_id`,`mb_name`,`mining`,`currency`,`rate`,`rec`,`rec_adm`,`datetime`,`shop_order_id`,`overcharge`) values";
-	if($balance_adm != 0){
-		$calc_mb_balance = $balance_code.$balance_adm;
+	if ($balance_adm != 0) {
+		$calc_mb_balance = $balance_code . $balance_adm;
 		$mb_balance_sql = ", mb_balance = mb_balance {$calc_mb_balance}";
 
 		$soodang_sql = "{$soodang}(curdate(),'관리자 지급','{$mb_id}','{$_POST['mb_name']}',{$calc_mb_balance},'ESGC',0,'관리자 지급','관리자 지급',now(),0,0)";
 		sql_query($soodang_sql);
 	}
 
-	if($balance_eth_adm != 0){
-		$calc_mb_balance_eth = $balance_eth_code.$balance_eth_adm;
+	if ($balance_eth_adm != 0) {
+		$calc_mb_balance_eth = $balance_eth_code . $balance_eth_adm;
 		$mb_balance_eth_sql = ", mb_balance_eth = mb_balance_eth {$calc_mb_balance_eth}";
 		$soodang_sql = "{$soodang}(curdate(),'관리자 지급','{$mb_id}','{$_POST['mb_name']}',{$calc_mb_balance_eth},'ETH',0,'관리자 지급','관리자 지급',now(),0,0)";
 		sql_query($soodang_sql);
@@ -263,25 +259,21 @@ else if ($w == 'u')
 
 
 	// 수동 입금
-	if($deposit_adm != 0){
+	if ($deposit_adm != 0) {
 
 		// 최초입금구분
 
-		if($origin_deposit_point == 0){
-			$process_code = 0;
-		}else{
-			$process_code = 1;
-		}
+		$process_code = 1;
 
-		if($deposit_code == '+'){
-			if(!$deposit_adm_content) {
+		if ($deposit_code == '+') {
+			if (!$deposit_adm_content) {
 				$deposit_adm_code = '';
 			} else {
 				$deposit_adm_code = $deposit_adm_content;
 				$admin_states = "관리자 지급";
 			}
-		}else{
-			if(!$deposit_adm_content) {
+		} else {
+			if (!$deposit_adm_content) {
 				$deposit_adm_code = '';
 			} else {
 				$deposit_adm_code = $deposit_adm_content;
@@ -289,7 +281,7 @@ else if ($w == 'u')
 			}
 		}
 
-		$deposit_adm_value = $deposit_code.$deposit_adm;
+		$deposit_adm_value = $deposit_code . $deposit_adm;
 		$deposit_adm_sql = "insert wallet_deposit_request set
 				mb_id             = '{$mb_id}'
 				, txhash     =  '{$deposit_adm_code}'
@@ -297,7 +289,7 @@ else if ($w == 'u')
 				, create_d    		= '{$today}'
 				, status   			= {$process_code}
 				, update_dt         = '{$todate}'
-				, coin          	= 'ESGC'
+				, coin          	= 'STC'
 				, fee    			= 0
 				, cost         		= 0
 				, amt    			= {$deposit_adm_value}
@@ -305,8 +297,8 @@ else if ($w == 'u')
 				, admin_states 		= '{$admin_states}'";
 
 		$deposit_adm_result = sql_query($deposit_adm_sql);
-		
-		if($process_code == 1 && $deposit_adm_result){
+
+		if ($process_code == 1 && $deposit_adm_result) {
 			$update_sql = "UPDATE g5_member set mb_deposit_point = mb_deposit_point  {$deposit_adm_value} WHERE mb_id = '{$mb_id}' ";
 			sql_query($update_sql);
 		}
@@ -334,20 +326,20 @@ else if ($w == 'u')
 		sql_query($upstair_sql_2);
 	} */
 
-	
+
 	if ($mb_password)
-		$sql_password = " , mb_password = '".get_encrypt_string($mb_password)."' ";
+		$sql_password = " , mb_password = '" . get_encrypt_string($mb_password) . "' ";
 	else
 		$sql_password = "";
 
-	if($_POST['reg_tr_password']){
-		$sql_tr_password = ", reg_tr_password = '".get_encrypt_string($_POST['reg_tr_password'])."'";
-	}else{
+	if ($_POST['reg_tr_password']) {
+		$sql_tr_password = ", reg_tr_password = '" . get_encrypt_string($_POST['reg_tr_password']) . "'";
+	} else {
 		$sql_tr_password = "";
 	}
 
 	if ($passive_certify)
-		$sql_certify = " , mb_email_certify = '".G5_TIME_YMDHIS."' ";
+		$sql_certify = " , mb_email_certify = '" . G5_TIME_YMDHIS . "' ";
 	else
 		$sql_certify = "";
 
@@ -361,8 +353,6 @@ else if ($w == 'u')
 				where mb_id = '{$mb_id}' ";
 	print_R($sql);
 	sql_query($sql);
-}
-else
+} else
 	alert('제대로 된 값이 넘어오지 않았습니다.');
-	goto_url('./member_form.php?'.$qstr.'&amp;w=u&amp;mb_id='.$mb_id, false);
-?>
+goto_url('./member_form.php?' . $qstr . '&amp;w=u&amp;mb_id=' . $mb_id, false);

@@ -37,15 +37,12 @@ $marketing_term = get_write("g5_write_agreement", 3);
 
 				<!-- <input type="button" id='win_hp_cert' class='btn btn_wd btn_primary hp_cert' value="휴대폰 본인인증" style="width:100%;"> -->
 
-				<input type="text" name="mb_name" style='padding:15px;display:none;' id="reg_mb_name" required placeholder="이름" />
-				<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px;display:none;' readonly placeholder="휴대폰번호" />
-				<input type="email" name="mb_id" class='cabinet' style='padding:15px' id="reg_mb_id" required placeholder="아이디 (이메일형식)" />
-				<span class='cabinet_inner' style=''>※이메일형식으로 입력해주세요</span>
-				<div class='in_btn_ly'><input type="button" id='EmailChcek' class='btn_round check' value="중복확인"></div>
-
-
-
-
+				<input type="text" name="mb_name" style='padding:15px;' id="reg_mb_name" placeholder="이름" />
+				<input type="text" name="mb_hp" id="reg_mb_hp" class='hp_cert' style='padding:15px;' placeholder="휴대폰번호" />
+				<input type="text" minlength="5" maxlength="20" name="mb_id" id="reg_mb_id" required placeholder="아이디" />
+				<div class='in_btn_ly' style="margin-top: -37px"><input type="button" id='id_check' class='btn_round check' value="중복확인"></div>
+				<input type="email" id="reg_mb_email" name="mb_email" required placeholder="이메일 주소" />
+				<div class='in_btn_ly' style="margin-top: -37px"><input type="button" id='email_check' class='btn_round check' value="중복확인"></div>
 			</div>
 
 
@@ -102,16 +99,6 @@ $marketing_term = get_write("g5_write_agreement", 3);
 						<a id="private" href="javascript:collapse('#private');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
 					</label>
 					<textarea id="private_term" class="term_textarea term_none"><?= $private_term['wr_content'] ?></textarea>
-				</div>
-
-
-				<div class="term_space">
-					<input type="checkbox" id="marketing_checkbox" class="checkbox-style-square term_none" name="mb_sms" value="1">
-					<label for="marketing_checkbox" style="width:25px;height:25px;">
-						<span style='margin-left:10px;line-height:30px;'><?= $marketing_term['wr_subject'] ?> 동의 (선택)</span>
-						<a id="marketing" href="javascript:collapse('#marketing');" style="width:25px;height:25px;position:absolute;right:25px;"><i class="fas fa-angle-down" style="width:25px;height:25px;"></i></a>
-					</label>
-					<textarea id="marketing_term" class="term_textarea term_none"><?= $marketing_term['wr_content'] ?></textarea>
 				</div>
 
 			</div>
@@ -377,6 +364,98 @@ $marketing_term = get_write("g5_write_agreement", 3);
 			return false;
 	}
 
+	check_id = 0;
+	check_email = 0;
+
+	// 아이디 중복 체크
+	$('#id_check').click(function() {
+
+
+		var registerId = $('#reg_mb_id').val();
+
+		var idReg = /^[a-z]+[a-z0-9]{5,19}$/g;
+		if (!idReg.test(registerId)) {
+			dialogModal("아이디 확인", "아이디는 영문자로 시작하는 6~20자 영문자 또는 숫자이어야 합니다.", "failed");
+			return;
+		}
+
+		if (registerId.length < 5) {
+			dialogModal("아이디 확인", "아이디는 최소 5글자 이상만 사용 가능합니다.", "failed");
+		} else {
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				url: "/bbs/register_check_id.php",
+				data: {
+					"registerId": registerId,
+					check: "id"
+				},
+				success: function(res) {
+					if (res.code == '000') {
+						check_id = 0;
+						dialogModal("아이디 확인", res.response, 'failed');
+					} else {
+						check_id = 1;
+						dialogModal("아이디 확인", '해당아이디는 사용가능합니다.', 'success');
+					}
+				}
+			});
+		}
+	});
+
+	// 이메일 중복 체크
+	$('#email_check').click(function() {
+
+
+		var registerId = $('#reg_mb_email').val();
+
+		let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+
+
+		if (!regex.test(registerId)) {
+			dialogModal("이메일 확인", "올바른 이메일 주소를 입력해주세요.", "failed");
+		} else {
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				url: "/bbs/register_check_id.php",
+				data: {
+					"registerId": registerId,
+					check: "email"
+				},
+				success: function(res) {
+					if (res.code == '000') {
+						check_email = 0;
+						dialogModal("이메일 확인", res.response, 'failed');
+					} else {
+						check_email = 1;
+						dialogModal("이메일 확인", '해당이메일은 사용가능합니다.', 'success');
+					}
+				}
+			});
+		}
+	});
+
+
+
+	$("#reg_mb_id").bind("keyup", function() {
+		re = /[~!@\#$%^&*\()\-=+_']/gi;
+		var temp = $("#reg_mb_id").val();
+		if (re.test(temp)) { //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+			$("#reg_mb_id").val(temp.replace(re, ""));
+		}
+		check_id = 0;
+	});
+
+	$("#reg_mb_email").bind("keyup", function() {
+		re = /[~!@\#$%^&*\()\-=+_']/gi;
+		var temp = $("#reg_mb_id").val();
+		if (re.test(temp)) { //특수문자가 포함되면 삭제하여 값으로 다시셋팅
+			$("#reg_mb_email").val(temp.replace(re, ""));
+		}
+		check_email = 0;
+	});
+
 
 	// submit 최종 폼체크
 	function fregisterform_submit() {
@@ -389,15 +468,22 @@ $marketing_term = get_write("g5_write_agreement", 3);
 			return false;
 		}
 
-		//아이디 중복체크
-		// if (check_id == 0) {
-		// 	dialogModal('ID 중복확인', '아이디 중복확인을 해주세요.', 'warning');
-		// 	return false;
-		// }
 
 		// 연락처
 		if (f.mb_hp.value == '' || f.mb_hp.value == 'undefined' || !mb_hp_check) {
 			dialogModal('휴대폰번호확인', '휴대폰 번호가 잘못되거나 누락되었습니다.', 'warning');
+			return false;
+		}
+
+		//아이디 중복체크
+		if (check_id == 0) {
+			dialogModal('ID 중복확인', '<strong>아이디 중복확인을 해주세요. </strong>', 'warning');
+			return false;
+		}
+
+		//아이디 중복체크
+		if (check_email == 0) {
+			dialogModal('EMAIL 중복확인', '<strong>이메일 중복확인을 해주세요. </strong>', 'warning');
 			return false;
 		}
 
@@ -423,29 +509,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 
 		}
 
-		// 메일인증 체크
-		$.ajax({
-			type: "POST",
-			url: "/mail/check_mail_for_register.php",
-			cache: false,
-			async: false,
-			dataType: "json",
-			data: {
-				user_email: $('#reg_mb_id').val()
-			},
-			success: function(res) {
-				if (res.result == "OK") {
-					f.submit();
-				} else {
-					dialogModal("이메일 인증", res.res, 'failed');
-
-				}
-
-			},
-			error: function(e) {
-				console.log(e)
-			}
-		});
+		f.submit();
 	}
 
 	function chkChar(obj) {

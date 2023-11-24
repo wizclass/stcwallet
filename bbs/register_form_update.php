@@ -83,8 +83,8 @@ $mb_password_re = trim($_POST['mb_password_re']);
 $mb_name        = trim($_POST['mb_name']);
 // $mb_nick        = trim($_POST['mb_nick']);
 $mb_nick        = '';
-// $mb_email       = trim($_POST['mb_email']);
-$mb_email       = $mb_id;
+$mb_email       = trim($_POST['mb_email']);
+// $mb_email       = $mb_id;
 
 $gp             = trim($_POST['gp']);
 $mb_sex         = isset($_POST['mb_sex'])           ? trim($_POST['mb_sex'])         : "";
@@ -308,11 +308,15 @@ $sql_otp .= ", otp_flag = 'Y'";
 
 // 이메일인증 여부 재확인
 
-$email_auth = "SELECT id FROM auth_email WHERE email='{$mb_email}' AND auth_check = '1' ORDER BY id DESC LIMIT 0,1";
+/* $email_auth = "SELECT id FROM auth_email WHERE email='{$mb_email}' AND auth_check = '1' ORDER BY id DESC LIMIT 0,1";
 $row = sql_fetch($email_auth);
 if (!$row) {
 	alert('이메일 인증이 완료되지 않았습니다.');
-}
+} */
+
+/* if (!(preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $_str) == false)) {
+	alert('올바른 이메일 주소를 입력해주세요.');
+} */
 
 if ($w == '') {
 	$sql = " insert into {$g5['member_table']}
@@ -374,12 +378,12 @@ if ($w == '') {
 	$result = sql_query($sql);
 
 
-	if ($result) {
+	/* 	if ($result) {
 		$recent_sql = "SELECT id FROM auth_email WHERE email='{$mb_email}' ORDER BY id DESC LIMIT 0,1";
 		$row = sql_fetch($recent_sql);
 		$update_sql = "UPDATE auth_email set auth_check = '2' WHERE email = '{$mb_email}' AND id = {$row['id']}";
 		sql_query($update_sql);
-	}
+	} */
 
 	$foreign_sql = "SELECT mb_id FROM {$g5['foreign_member_info']} WHERE mb_id = '{$mb_id}'";
 	$foreign_row = sql_fetch($foreign_sql);
