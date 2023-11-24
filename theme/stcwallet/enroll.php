@@ -42,7 +42,7 @@ $marketing_term = get_write("g5_write_agreement", 3);
 				<input type="text" minlength="5" maxlength="20" name="mb_id" id="reg_mb_id" required placeholder="아이디" />
 				<div class='in_btn_ly' style="margin-top: -37px"><input type="button" id='id_check' class='btn_round check' value="중복확인"></div>
 				<input type="email" id="reg_mb_email" name="mb_email" required placeholder="이메일 주소" />
-				<div class='in_btn_ly' style="margin-top: -37px"><input type="button" id='email_check' class='btn_round check' value="중복확인"></div>
+
 			</div>
 
 
@@ -140,42 +140,6 @@ $marketing_term = get_write("g5_write_agreement", 3);
 				location.href = g5_url;
 			});
 		});
-
-
-		/*이메일 체크*/
-		$('#EmailChcek').on('click', function() {
-			var email = $('#reg_mb_id').val();
-			var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-
-
-			if (email == '' || !re.test(email)) {
-				dialogModal("이메일 인증", "사용가능한 이메일 주소를 입력해주세요.", 'warning')
-				return false;
-			}
-
-			// loading.show();
-
-			$.ajax({
-				type: "POST",
-				url: "/mail/send_mail_smtp.php",
-				dataType: "json",
-				data: {
-					user_email: email
-				},
-				complete: function(res) {
-					var email_check = res.hasOwnProperty("responseJSON")
-					if (email_check) {
-						dialogModal("이메일 인증", "이미 사용중인 이메일 입니다.", 'failed');
-						return false;
-					}
-
-					dialogModal("인증메일발송", "인증메일이 발송되었습니다.<br>메일인증확인후 돌아와 완료해주세요", 'success');
-				}
-
-			});
-
-		});
-
 
 		// 핀번호 (오직 숫자만)
 		document.getElementById('reg_tr_password').oninput = function() {
@@ -403,38 +367,6 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		}
 	});
 
-	// 이메일 중복 체크
-	$('#email_check').click(function() {
-
-
-		var registerId = $('#reg_mb_email').val();
-
-		let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
-
-
-		if (!regex.test(registerId)) {
-			dialogModal("이메일 확인", "올바른 이메일 주소를 입력해주세요.", "failed");
-		} else {
-			$.ajax({
-				type: "POST",
-				dataType: "json",
-				url: "/bbs/register_check_id.php",
-				data: {
-					"registerId": registerId,
-					check: "email"
-				},
-				success: function(res) {
-					if (res.code == '000') {
-						check_email = 0;
-						dialogModal("이메일 확인", res.response, 'failed');
-					} else {
-						check_email = 1;
-						dialogModal("이메일 확인", '해당이메일은 사용가능합니다.', 'success');
-					}
-				}
-			});
-		}
-	});
 
 
 
@@ -446,16 +378,6 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		}
 		check_id = 0;
 	});
-
-	$("#reg_mb_email").bind("keyup", function() {
-		re = /[~!@\#$%^&*\()\-=+_']/gi;
-		var temp = $("#reg_mb_id").val();
-		if (re.test(temp)) { //특수문자가 포함되면 삭제하여 값으로 다시셋팅
-			$("#reg_mb_email").val(temp.replace(re, ""));
-		}
-		check_email = 0;
-	});
-
 
 	// submit 최종 폼체크
 	function fregisterform_submit() {
@@ -478,12 +400,6 @@ $marketing_term = get_write("g5_write_agreement", 3);
 		//아이디 중복체크
 		if (check_id == 0) {
 			dialogModal('ID 중복확인', '<strong>아이디 중복확인을 해주세요. </strong>', 'warning');
-			return false;
-		}
-
-		//아이디 중복체크
-		if (check_email == 0) {
-			dialogModal('EMAIL 중복확인', '<strong>이메일 중복확인을 해주세요. </strong>', 'warning');
 			return false;
 		}
 
