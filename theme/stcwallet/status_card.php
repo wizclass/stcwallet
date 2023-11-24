@@ -1,18 +1,19 @@
 <div class="asset_status_wrap">
+    <div class="status_card_wrap esgc">
+        <h5><?= ASSETS_CURENCY ?> 자산 현황</h5>
+        <div class="quantity_wrap">
+            <p class="esgc_quantity"><?= $shift_total_token_balance ?> <span class="currency"><?= ASSETS_CURENCY ?></span></p>
+            <!-- <p class="price"><?= $total_token_balance_krw ?> <?= BALANCE_CURENCY ?></p> -->
+        </div>
+        <div class="link_btn_wrap">
+            <a class="deposit" href="javascript:link('deposit','esgc');">입금</a>
+            <a class="withdraw" href="javascript:link('withdraw','esgc');">출금</a>
+        </div>
+    </div>
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <div class="status_card_wrap esgc">
-                    <h5><?= ASSETS_CURENCY ?> 자산 현황</h5>
-                    <div class="quantity_wrap">
-                        <p class="esgc_quantity"><?= $shift_total_token_balance ?> <span class="currency"><?= ASSETS_CURENCY ?></span></p>
-                        <!-- <p class="price"><?= $total_token_balance_krw ?> <?= BALANCE_CURENCY ?></p> -->
-                    </div>
-                    <div class="link_btn_wrap">
-                        <a class="deposit" href="javascript:link('deposit','esgc');">입금</a>
-                        <a class="withdraw" href="javascript:link('withdraw','esgc');">출금</a>
-                    </div>
-                </div>
+
             </div>
             <!-- <? if ($memlev > 1) { ?>
             <div class="swiper-slide last_slide">
