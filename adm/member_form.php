@@ -270,8 +270,8 @@ $rank_result = sql_fetch($rank_sql);
 	a.btn,
 	span.btn {
 		display: inline-block;
-		*display: inline;
-		*zoom: 1;
+		display: inline;
+		zoom: 1;
 		padding: 0 10px;
 		height: 24px;
 		line-height: 24px;
@@ -772,7 +772,7 @@ $rank_result = sql_fetch($rank_sql);
 	<tr class='divide-bottom'>
 		<th scope="row">출금 <?= ASSETS_CURENCY ?> 지갑주소</th>
 		<td colspan="3">
-			<input type="text" name="mb_wallet" value="<?= Decrypt($mb['mb_wallet'], $mb['mb_id'], 'x') ?>" id="mb_wallet" class="frm_input wide" size="100" readonly=true>
+			<input type="text" name="mb_wallet" value="<?= Decrypt($mb['mb_wallet'], $mb['mb_id'], 'x'); ?>" id="mb_wallet" class="frm_input wide" size="100" readonly=true>
 			<button type="button" class="copybutton" onclick="copyAddress('#mb_wallet')">복사하기</button>
 		</td>
 	</tr>

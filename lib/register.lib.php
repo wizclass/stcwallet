@@ -113,15 +113,16 @@ function empty_mb_email($reg_mb_email)
     if (!trim($reg_mb_email))
         return "E-mail 주소를 입력해 주십시오.";
     else
-        return "";
+        return $reg_mb_email;
 }
 
 function valid_mb_email($reg_mb_email)
 {
-    if (!preg_match("/([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)\.([0-9a-zA-Z_-]+)/", $reg_mb_email))
+    if (preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i", $reg_mb_email) == false) {
         return "E-mail 주소가 형식에 맞지 않습니다.";
-    else
-        return "";
+    } else {
+        return $reg_mb_email;
+    }
 }
 
 // 금지 메일 도메인 검사

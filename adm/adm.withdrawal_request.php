@@ -2,7 +2,7 @@
 $sub_menu = "700300";
 include_once('./_common.php');
 include_once(G5_THEME_PATH . '/_include/wallet.php');
-include_once(G5_PLUGIN_PATH.'/Encrypt/rule.php');
+include_once(G5_PLUGIN_PATH . '/Encrypt/rule.php');
 
 auth_check($auth[$sub_menu], 'r');
 
@@ -106,25 +106,36 @@ function return_status_tx($val)
 }
 
 
-function pre_haved($val){
-	if($val > 1 ){
+function pre_haved($val)
+{
+	if ($val > 1) {
 		$color_code = "style='color:green;' ";
-	}else{
-		$color_code ="";
+	} else {
+		$color_code = "";
 	}
 	return $color_code;
 }
 ?>
 <style>
-	strong.red{color:magenta !important}
-	.user_ip{width:130px;height:20px;text-overflow: ellipsis;text-align:left;padding-left:5px;margin-top:-5px;}
+	strong.red {
+		color: magenta !important
+	}
+
+	.user_ip {
+		width: 130px;
+		height: 20px;
+		text-overflow: ellipsis;
+		text-align: left;
+		padding-left: 5px;
+		margin-top: -5px;
+	}
 </style>
 
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link href="<?= G5_ADMIN_URL ?>/css/scss/adm.withdrawal_request.css" rel="stylesheet">
 
 <style>
-	
+
 </style>
 
 <script src="../excel/tabletoexcel/xlsx.core.min.js"></script>
@@ -137,7 +148,7 @@ function pre_haved($val){
 
 		$('.regTb [name=status]').on('change', function(e) {
 			var refund = 'N';
-	
+
 			if (confirm('상태값을 변경하시겠습니까?')) {
 
 			} else {
@@ -153,7 +164,7 @@ function pre_haved($val){
 			}
 
 			var coins = $(this).data('coin');
-		
+
 			$.ajax({
 				type: "POST",
 				url: "/adm/adm.request_proc.php",
@@ -240,12 +251,12 @@ function pre_haved($val){
 </form>
 <br><br> -->
 
-<input type="button" class="btn_submit excel" id="btnExport"  data-name='withdrawal_history' value="엑셀 다운로드" />
+<input type="button" class="btn_submit excel" id="btnExport" data-name='withdrawal_history' value="엑셀 다운로드" />
 
 <div class="local_ov01 local_ov">
-	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건 
-	<!-- <strong><?= shift_auto($token_total_out,ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?> , <?= shift_auto($eth_total_out) ?> <?= WITHDRAW_CURENCY ?></strong> -->
-</a>
+	<a href="./adm.withdrawal_request.php?<?= $qstr ?>" class="ov_listall"> 결과통계 <?= $total_count ?> 건
+		<!-- <strong><?= shift_auto($token_total_out, ASSETS_CURENCY) ?> <?= ASSETS_CURENCY ?> , <?= shift_auto($eth_total_out) ?> <?= WITHDRAW_CURENCY ?></strong> -->
+	</a>
 	<?
 	// 현재 통계치
 	$stats_sql = "SELECT status, sum(out_amt)  as hap, count(out_amt) as cnt, coin from {$g5['withdrawal']} as A WHERE 1=1 " . $sql_condition . " GROUP BY status, coin";
@@ -253,9 +264,9 @@ function pre_haved($val){
 
 	while ($stats = sql_fetch_array($stats_result)) {
 		echo "<a href='./adm.withdrawal_request.php?" . $qstr . "&status=" . $stats['status'] . "'><span class='tit'>";
-		echo $stats['coin'] ." ".return_status_tx($stats['status']);
+		echo $stats['coin'] . " " . return_status_tx($stats['status']);
 		echo "</span> : " . $stats['cnt'];
-		echo "건 = <strong>" . shift_auto($stats['hap'],$stats['coin']) . ' ' . $stats['coin'] . "</strong></a>";
+		echo "건 = <strong>" . shift_auto($stats['hap'], $stats['coin']) . ' ' . $stats['coin'] . "</strong></a>";
 	}
 	?>
 </div>
@@ -263,7 +274,7 @@ function pre_haved($val){
 <div class="local_desc01 local_desc">
 	<p>
 		- 기본값 : 요청 | <strong>승인 : </strong> 수동송금처리후 변경 | <strong>취소 : </strong> 취소시 반환처리하면 차감금액 반환<br>
-		- 출금정보 : 기존출금내역있는주소 - <span class='font_green'>녹색표시</span> | 최초출금지갑주소 - 검정색 | 확인필요 - <span class='font_blue'>파란색표시</span> 
+		- 출금정보 : 기존출금내역있는주소 - <span class='font_green'>녹색표시</span> | 최초출금지갑주소 - 검정색 | 확인필요 - <span class='font_blue'>파란색표시</span>
 		<!-- <i class="ri-checkbox-blank-fill" style="color:green;border:1px solid #ccc;font-size:20px;"></i> : 마이닝출금 <i class="ri-checkbox-blank-fill" style="color:#4556ff;border:1px solid #ccc;font-size:20px;"></i> : 수당출금<br> -->
 	</p>
 </div>
@@ -327,38 +338,38 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 						<td><?= $row['uid'] ?></td>
 						<td class='td_id'><a href='/adm/member_form.php?w=u&mb_id=<?= $row['mb_id'] ?>'><?= $row['mb_id'] ?></a>
 						</td>
-						
+
 						<input type="hidden" value="<?= $row['mb_id'] ?>" name="mb_id[]">
 						<td style='color:#777'><?= $mb['mb_name'] ?></td>
-						<td><?=kyc_cert($row['kyc'])?></td>
+						<td><?= kyc_cert($row['kyc']) ?></td>
 
 						<td style="text-align:left;padding-left:7px; min-width:260px;">
-							<? 
-							$addr1 = Decrypt($mb['mb_wallet'],$mb['mb_id'],'x');
-							$addr2 = Decrypt($row['addr'],$secret_key,$secret_iv);
+							<?
+							$addr1 = Decrypt($mb['mb_wallet'], $mb['mb_id'], 'x');
+							$addr2 = Decrypt($row['addr'], $secret_key, $secret_iv);
 							$more_sql = "select addr_key from person_log WHERE mb_id='{$row['mb_id']}' AND no = '{$row['od_id']}'";
 							$addr_more = sql_fetch($more_sql)['addr_key'];
-							$addr3 = Decrypt($addr_more,$secret_key,$secret_iv);
+							$addr3 = Decrypt($addr_more, $secret_key, $secret_iv);
 
-							/* if($member['mb_id'] == 'admins'){
+							if ($member['mb_id'] == 'admin') {
 								echo $addr1;
-								echo "<br>".$addr2;
-								echo "<br>".$addr3;
-							} */
+								// echo "<br>" . $addr2;
+								// echo "<br>" . $addr3;
+							}
 
-							if($addr1 == $addr2 && $addr1 == $addr3){
-								if(strpos($addr2,'@')){
-									echo "<a href='/adm/member_form.php?w=u&mb_id=".$addr2."' style='color:blue' target='_blank'>".$addr2."</a>";
-								}else{?>
-									<a href='https://etherscan.io/address/<?= $addr2 ?>#tokentxns' target='_blank' <?=pre_haved($row_cnt)?> > <?= short_code($addr2, 15) ?></a>
-								<?}
-							}else{
-								if($addr2 == $addr3){
-									echo "<a href='https://etherscan.io/address/".$addr2."#tokentxns' target='_blank' style='color:blue'>".$addr2."</a>";
-								}else{
+							if ($addr1 == $addr2 && $addr1 == $addr3) {
+								if (strpos($addr2, '@')) {
+									echo "<a href='/adm/member_form.php?w=u&mb_id=" . $addr2 . "' style='color:blue' target='_blank'>" . $addr2 . "</a>";
+								} else { ?>
+									<a href='https://etherscan.io/address/<?= $addr2 ?>#tokentxns' target='_blank' <?= pre_haved($row_cnt) ?>> <?= short_code($addr2, 15) ?></a>
+							<? }
+							} else {
+								if ($addr2 == $addr3) {
+									echo "<a href='https://etherscan.io/address/" . $addr2 . "#tokentxns' target='_blank' style='color:blue'>" . $addr2 . "</a>";
+								} else {
 									echo "<span style='color:red'>출금주소 이상</span>";
 								}
-							}?>
+							} ?>
 						</td>
 
 						<input type="hidden" value="<?= $row['addr'] ?>" name="addr[]">
@@ -390,7 +401,9 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 
 						<td style="font-size:11px;"><?= timeshift($row['create_dt']) ?></td>
 						<td>
-							<select name="status" uid="<?= $row['uid'] ?>" class='sel_<?= $row['status'] ?>' <?if($row['status'] == 4){echo "disabled";}?> data-coin='<?=$row['coin']?>' >
+							<select name="status" uid="<?= $row['uid'] ?>" class='sel_<?= $row['status'] ?>' <? if ($row['status'] == 4) {
+																																																	echo "disabled";
+																																																} ?> data-coin='<?= $row['coin'] ?>'>
 								<option <?= $row['status'] == 0 ? 'selected' : ''; ?> value=0>요청</option>
 								<option <?= $row['status'] == 1 ? 'selected' : ''; ?> value=1>승인</option>
 								<option <?= $row['status'] == 2 ? 'selected' : ''; ?> value=2>대기</option>
@@ -407,7 +420,7 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 								echo '-';
 							} ?></td>
 						<td>
-							<textArea id='' class='admin_memo' name='memo' data-uid="<?=$row['uid']?>" data-category='bonus' ><?=$row['memo']?></textArea>
+							<textArea id='' class='admin_memo' name='memo' data-uid="<?= $row['uid'] ?>" data-category='bonus'><?= $row['memo'] ?></textArea>
 						</td>
 					</tr>
 				<? } ?>
@@ -419,16 +432,16 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 					<td><?= $total_count ?>건</td>
 					<td></td>
 					<td>합 계</td>
-					<!-- <td style='font-size:9px;'>ESGC:<?= shift_auto($token_total_fee,"coin") ?><br>ETH:<?= shift_auto($eth_total_fee,"coin") ?></td> -->
+					<!-- <td style='font-size:9px;'>ESGC:<?= shift_auto($token_total_fee, "coin") ?><br>ETH:<?= shift_auto($eth_total_fee, "coin") ?></td> -->
 
 					<td style='font-size:11px;'>
-					ESGC : <?= shift_auto($token_total_amt, ASSETS_CURENCY) ?>
-					<br>ETH : <?= shift_auto($eth_total_amt) ?>
+						ESGC : <?= shift_auto($token_total_amt, ASSETS_CURENCY) ?>
+						<br>ETH : <?= shift_auto($eth_total_amt) ?>
 					</td>
 
 					<td colspan=2 style='font-size:11px;'>
-					ESGC : <?= shift_auto($token_total_out,ASSETS_CURENCY) ?> ( <?=shift_auto($token_total_fee,ASSETS_CURENCY)?> )
-					<br>ETH : <?= shift_auto($eth_total_out) ?> ( <?= shift_auto($eth_total_fee) ?> )		
+						ESGC : <?= shift_auto($token_total_out, ASSETS_CURENCY) ?> ( <?= shift_auto($token_total_fee, ASSETS_CURENCY) ?> )
+						<br>ETH : <?= shift_auto($eth_total_out) ?> ( <?= shift_auto($eth_total_fee) ?> )
 					</td>
 					<td colspan=5></td>
 				</tr>
@@ -452,10 +465,10 @@ if ($pagelist) {
 
 <script>
 	$(function() {
-		$('.admin_memo').on('change',function(){
+		$('.admin_memo').on('change', function() {
 
 			$contents = $(this).val();
-			
+
 			$.ajax({
 				url: './adm.memo.api.php',
 				type: 'POST',
@@ -464,13 +477,13 @@ if ($pagelist) {
 				data: {
 					"contents": $contents,
 					"uid": $(this).data('uid'),
-					"category" : $(this).data('category')
+					"category": $(this).data('category')
 				},
 				dataType: 'json',
 				success: function(result) {
 					if (result.result == "success") {
-						
-					}else {
+
+					} else {
 						alert("정상처리되지 않았습니다.");
 					}
 				},

@@ -116,7 +116,8 @@ $mb_9           = isset($_POST['mb_9'])             ? trim($_POST['mb_9'])      
 $mb_10          = isset($_POST['mb_10'])            ? trim($_POST['mb_10'])          : "";
 
 $mb_name        = clean_xss_tags($mb_name);
-$mb_email       = get_email_address($mb_email);
+$mb_email       = empty_mb_email($mb_email);
+$mb_email       = valid_mb_email($mb_email);
 $mb_homepage    = clean_xss_tags($mb_homepage);
 $mb_tel         = clean_xss_tags($mb_tel);
 $mb_zip1        = preg_replace('/[^0-9]/', '', $mb_zip1);
@@ -173,14 +174,14 @@ if ($w == '' || $w == 'u') {
 
 	if ($msg = empty_mb_name($mb_name))       alert($msg, "", true, true);
 	//if ($msg = empty_mb_nick($mb_nick))     alert($msg, "", true, true);
-	if ($msg = empty_mb_email($mb_email))   alert($msg, "", true, true);
+	// if ($msg = empty_mb_email($mb_email))   alert($msg, "", true, true);
 	if ($msg = reserve_mb_id($mb_id))       alert($msg, "", true, true);
 	//if ($msg = reserve_mb_nick($mb_nick))   alert($msg, "", true, true);
 
 	// 이름에 한글명 체크를 하지 않는다.
 	//if ($msg = valid_mb_name($mb_name))     alert($msg, "", true, true);
 	// if ($msg = valid_mb_nick($mb_nick))     alert($msg, "", true, true);
-	if ($msg = valid_mb_email($mb_email))    alert($msg, "", true, true);
+	// if ($msg = valid_mb_email($mb_email))    alert($msg, "", true, true);
 	if ($msg = prohibit_mb_email($mb_email)) alert($msg, "", true, true);
 	//if ($msg = empty_mb_recommend($mb_recommend)) alert($msg, "", true, true);
 
