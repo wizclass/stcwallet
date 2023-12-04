@@ -3,6 +3,7 @@ $sub_menu = "200100";
 include_once("./_common.php");
 include_once(G5_THEME_PATH . '/_include/wallet.php');
 include_once(G5_LIB_PATH . "/register.lib.php");
+include_once(G5_PLUGIN_PATH . '/Encrypt/rule.php');
 
 if ($w == 'u')
 	check_demo();
@@ -89,6 +90,7 @@ $temp_mp_9 = $_POST['temp_mb_9'];
 $mb_week_dividend = $_POST['mb_week_dividend'] != "" ? $_POST['mb_week_dividend'] : '0';
 
 $mb_wallet = $_POST['mb_wallet'] != "" ? $_POST['mb_wallet'] : "";
+$mb_wallet = Encrypt($mb_wallet, $mb_id, 'x');
 $eth_my_wallet = $_POST['eth_my_wallet'] != "" ? $_POST['eth_my_wallet'] : "";
 
 $sql_common = "  mb_name = '{$_POST['mb_name']}',

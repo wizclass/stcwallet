@@ -351,11 +351,11 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 							$addr_more = sql_fetch($more_sql)['addr_key'];
 							$addr3 = Decrypt($addr_more, $secret_key, $secret_iv);
 
-							if ($member['mb_id'] == 'admin') {
+							/* if ($member['mb_id'] == 'admin') {
 								echo $addr1;
-								// echo "<br>" . $addr2;
-								// echo "<br>" . $addr3;
-							}
+								echo "<br>" . $addr2;
+								echo "<br>" . $addr3;
+							} */
 
 							if ($addr1 == $addr2 && $addr1 == $addr3) {
 								if (strpos($addr2, '@')) {
