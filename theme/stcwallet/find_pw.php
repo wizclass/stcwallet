@@ -38,8 +38,8 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
     <div class="find_wrap container mt-3">
         <h1 class="title">비밀번호 찾기 | 재설정</h1>
         <div class="hp_form mt-4" id="hp_form">
-            <input type="text" id="mb_name" class="b_radius_10 mb-2 border" placeholder="실명 입력">
             <input type="text" id="mb_id" class="b_radius_10 mb-2 border" placeholder="아이디 입력">
+            <input type="text" id="mb_hp" class="b_radius_10 mb-2 border" placeholder="연락처 입력">
             <input type="button" class="btn btn_wd btn--gray main_btn" id="hp_button" value="인증번호 받기">
         </div>
 
@@ -50,12 +50,12 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
                     <div class='timer-down' id='timer_down'>남은 시간 05:00</div>
                 </div>
             </h5>
-            
+
             <div class="auth_wrap mt-2">
-                <input type="text" id='auth_number' class="b_radius_10 border" placeholder="이메일로 전송 받은 인증번호 입력">
+                <input type="text" id='auth_number' class="b_radius_10 border" placeholder="전송 받은 인증번호 입력">
                 <button class="btn input_btn input_btn2 main_btn" id="auth_number_confirm">확인</button>
             </div>
-            
+
         </div>
         <div class="line"></div>
         <div id="pw_form">
@@ -74,8 +74,8 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
 
 <script>
     $(document).ready(function() {
-        if($('#wrapper').parent().hasClass('bf-login') == true ) {
-            $('#wrapper').css('margin-left','0px').css('color','#000');     
+        if ($('#wrapper').parent().hasClass('bf-login') == true) {
+            $('#wrapper').css('margin-left', '0px').css('color', '#000');
         }
     });
 </script>
@@ -89,11 +89,11 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
     $('#hp_button').click(function() {
 
         if ($('#mb_name').val() == "" || $('#mb_id').val() == "") {
-            dialogModal('','실명 또는 아이디를 입력해주세요.','find_warning');
+            dialogModal('', '아이디를 입력해주세요.', 'find_warning');
             return;
         }
 
-        $.ajax({
+        /* $.ajax({
 
             url: "/mail/find_pw_mail.php",
             type: "POST",
@@ -102,58 +102,58 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
             cache: false,
             data: {
                 mb_id: $('#mb_id').val(),
-                mb_name : $('#mb_name').val()
+                mb_name: $('#mb_name').val()
             },
             complete: function(res) {
                 var check = res.hasOwnProperty("responseJSON")
 
                 if (check) {
-                    dialogModal('','해당회원을 찾지 못했습니다.','find_warning');
+                    dialogModal('', '해당회원을 찾지 못했습니다.', 'find_warning');
                     return;
                 } else {
-                    dialogModal('','입력하신 아이디로 인증번호가 전송되었습니다. 이메일을 확인해주세요.','find_success');
+                    dialogModal('', '입력하신 아이디로 인증번호가 전송되었습니다. 이메일을 확인해주세요.', 'find_success');
                     let count;
                     $('#modal_return_url').click(function() {
                         count = count_down();
                     })
 
-                    $('#auth_number_confirm').click(function(){
+                    $('#auth_number_confirm').click(function() {
                         let auth_number = $('#auth_number').val();
-                        if(auth_number.length == 6){
-                            
+                        if (auth_number.length == 6) {
+
                             $.ajax({
-                                url:'/util/find_pw_proc.php',
+                                url: '/util/find_pw_proc.php',
                                 type: "POST",
                                 dataType: "json",
                                 async: false,
                                 cache: false,
-                                data:{
-                                    type : "auth_number_check",
+                                data: {
+                                    type: "auth_number_check",
                                     mb_id: $('#mb_id').val(),
-                                    mb_name : $('#mb_name').val(),
-                                    auth_number : auth_number
+                                    mb_name: $('#mb_name').val(),
+                                    auth_number: auth_number
                                 },
-                                success : (res) => {
-                                    if(res.code == "200"){
+                                success: (res) => {
+                                    if (res.code == "200") {
                                         clearInterval(count);
-                                        dialogModal('','인증이 완료되었습니다.','success');
+                                        dialogModal('', '인증이 완료되었습니다.', 'success');
                                         $('#modal_return_url').click(function() {
                                             $('#timer_down').hide();
-                                            $('#auth_number_confirm').attr('disabled',true);
+                                            $('#auth_number_confirm').attr('disabled', true);
                                             $('#auth_number').attr("readonly", true);
                                             $('#pw_form').show();
                                             $('.line').show();
                                         })
-                                    }else{
-                                        dialogModal('',res.msg,'find_warning');
+                                    } else {
+                                        dialogModal('', res.msg, 'find_warning');
                                     }
                                 }
                             })
                         }
-                    })            
+                    })
                 }
             }
-        })
+        }) */
     })
 
     $('#confirm_pw').click(function() {
@@ -164,22 +164,22 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
         let auth_number = $('#auth_number').val();
 
         if (auth_pw == "" || re_auth_pw == "") {
-            dialogModal('','비밀번호를 다시 입력해주세요.','find_warning');
+            dialogModal('', '비밀번호를 다시 입력해주세요.', 'find_warning');
             return false;
         }
 
         if (!pattern.test(auth_pw)) {
-            dialogModal('','영문+숫자+특수 문자 조합을 사용하여 최소 8 자 이상 16 자리 이하 입력해주세요.','find_warning');
+            dialogModal('', '영문+숫자+특수 문자 조합을 사용하여 최소 8 자 이상 16 자리 이하 입력해주세요.', 'find_warning');
             return false;
         }
 
         if (auth_pw != re_auth_pw) {
-            dialogModal('','비밀번호를 한번 더 입력해주세요.','find_warning');
+            dialogModal('', '비밀번호를 한번 더 입력해주세요.', 'find_warning');
             return;
         }
 
         if (blank.test(auth_pw) == true) {
-            dialogModal('','비밀번호에 공백이 포함 되어있습니다.','find_warning');
+            dialogModal('', '비밀번호에 공백이 포함 되어있습니다.', 'find_warning');
             return false;
         }
 
@@ -191,9 +191,9 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
             data: {
                 type: "change_password",
                 auth_pw: encodeUnicode(auth_pw),
-                mb_id : $('#mb_id').val(),
-                mb_name : $('#mb_name').val(),
-                auth_number : auth_number
+                mb_id: $('#mb_id').val(),
+                mb_name: $('#mb_name').val(),
+                auth_number: auth_number
             },
             success: function(res) {
                 dialogModal('', res.msg, 'success');
@@ -208,20 +208,19 @@ include_once(G5_THEME_PATH . '/_include/gnb.php');
 
     })
 
- function encodeUnicode(str) {
-	var unicodeString = '';
-	for (var i=0; i < str.length; i++) {
-		var theUnicode = str.charCodeAt(i).toString(16).toUpperCase();
+    function encodeUnicode(str) {
+        var unicodeString = '';
+        for (var i = 0; i < str.length; i++) {
+            var theUnicode = str.charCodeAt(i).toString(16).toUpperCase();
 
-		while (theUnicode.length < 4) {
-			theUnicode = '0' + theUnicode;
-		}
+            while (theUnicode.length < 4) {
+                theUnicode = '0' + theUnicode;
+            }
 
-		theUnicode = '\\u' + theUnicode;
-		unicodeString += theUnicode;
-	}
+            theUnicode = '\\u' + theUnicode;
+            unicodeString += theUnicode;
+        }
 
-	return unicodeString;
-}
-
+        return unicodeString;
+    }
 </script>

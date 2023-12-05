@@ -422,7 +422,7 @@ $rank_result = sql_fetch($rank_sql);
 
 	<th scope="row"><label for="mb_hp">휴대폰번호</label></th>
 	<td>
-		<input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" class="frm_input  wide" size="15" maxlength="10">
+		<input type="text" name="mb_hp" value="<?php echo $mb['mb_hp'] ?>" id="mb_hp" class="frm_input  wide" size="15" maxlength="11">
 	</td>
 
 	</tr>

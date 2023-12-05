@@ -42,8 +42,8 @@ $temp_id = get_cookie("ck_ca_id", $mb_id, time() + 86400 * 31);
 
 
 				<div class="login_btn_bottom">
-					<a href="/page.php?id=find_id" class='desc' style="text-decoration: none">아이디 찾기</a>
-					<a href="/page.php?id=find_pw" class='desc find_pw' style="text-decoration: none">비밀번호 찾기</a>
+					<!-- <a href="/page.php?id=find_id" class='desc' style="text-decoration: none">아이디 찾기</a> -->
+					<a href="/page.php?id=find_pw" class='desc' style="text-decoration: none">비밀번호 찾기</a>
 					<div class="login_btn_wrap">
 						<button type="button" class="btn wd main_btn" onclick="flogin_submit();" rerender="form"><span>로그인</span></button>
 						<a href="/bbs/register_form.php" class="btn wd btn_secondary" style="background: #e6ecf3"><span>회원 가입</span></a>
