@@ -89,8 +89,7 @@ $account_name = $_POST['account_name'] != "" ? $_POST['account_name'] : '';
 $temp_mp_9 = $_POST['temp_mb_9'];
 $mb_week_dividend = $_POST['mb_week_dividend'] != "" ? $_POST['mb_week_dividend'] : '0';
 
-$mb_wallet = $_POST['mb_wallet'] != "" ? $_POST['mb_wallet'] : "";
-$mb_wallet = Encrypt($mb_wallet, $mb_id, 'x');
+$mb_wallet = $_POST['mb_wallet'] != "" ? Encrypt($mb_wallet, $mb_id, 'x') : "";
 $eth_my_wallet = $_POST['eth_my_wallet'] != "" ? $_POST['eth_my_wallet'] : "";
 
 $sql_common = "  mb_name = '{$_POST['mb_name']}',
