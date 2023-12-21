@@ -3893,9 +3893,13 @@ input[type=number]::-webkit-inner-spin-button {
   }
 
   .status_card_wrap {
-    min-height: 200px;
+    min-height: 250px;
     background-size: 70px;
     background-position: calc(100% - 20px) 26%;
+  }
+
+  .usdt_price {
+    font-size: 14px !important;
   }
 
   .status_card_wrap h5 {
