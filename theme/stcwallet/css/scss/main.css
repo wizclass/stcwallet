@@ -3899,7 +3899,8 @@ input[type=number]::-webkit-inner-spin-button {
   }
 
   .usdt_price {
-    font-size: 14px !important;
+    margin-top: 14px;
+    opacity: 0.8;
   }
 
   .status_card_wrap h5 {

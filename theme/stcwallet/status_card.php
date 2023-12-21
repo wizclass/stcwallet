@@ -3,17 +3,15 @@
         <h5><?= ASSETS_CURENCY ?> 자산 현황</h5>
         <div class="quantity_wrap">
 
-            <div class="row">
-                <p class="esgc_quantity col-6">
-                    <?= $shift_total_token_balance ?> <span class="currency"><?= ASSETS_CURENCY ?></span>
-                </p>
-                <div class="col-6 usdt_price" style="display: flex; flex-direction: column; text-align: right; font-size: 18px;">
-                    <div>1 STC = 1USDT</div>
-                    <div>1 USDT = <?= shift_auto($coin['usdt_krw'], ASSETS_CURENCY) ?> <?= BALANCE_CURENCY ?></div>
-                </div>
+            <p class="esgc_quantity">
+                <?= $shift_total_token_balance ?> <span class="currency"><?= ASSETS_CURENCY ?></span>
+            </p>
 
-            </div>
             <p class="price"><?= shift_auto($total_token_balance * $coin['usdt_krw'], ASSETS_CURENCY) ?> <?= BALANCE_CURENCY ?></p>
+            <div class="usdt_price" style="display: flex; flex-direction: column; font-size: 13px;">
+                <div>1 STC = 1 USDT</div>
+                <div>1 USDT = <?= shift_auto($coin['usdt_krw'], ASSETS_CURENCY) ?> <?= BALANCE_CURENCY ?></div>
+            </div>
         </div>
         <div class="link_btn_wrap">
             <a class="deposit" href="javascript:link('deposit','esgc');">입금</a>
