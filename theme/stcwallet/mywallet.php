@@ -384,7 +384,8 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
                 </div>
                 <div class="hist_mid">
                   <? if ($row['states'] == "withdraw") { ?>
-                    <p class="tx_id"><?= retrun_tx_func(Decrypt($row['credit'], $secret_key, $secret_iv), $row['coin']) ?></p>
+                    <p class="tx_id"><?php if (retrun_tx_func(Decrypt($row['credit'], $secret_key, $secret_iv), $row['coin']) != "") echo retrun_tx_func(Decrypt($row['credit'], $secret_key, $secret_iv), $row['coin']);
+                                      else echo $row['credit']; ?></p>
                   <? } else {
                     $find_str = strpos($row['credit'], '지급');
                     $tx_func = $find_str ? $row['credit'] : retrun_tx_func($row['credit'], $row['coin']);
@@ -448,7 +449,8 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
                   <img src="<?= G5_THEME_URL ?>/img/withdraw.svg" alt="">
                 </div>
                 <div class="hist_mid">
-                  <p class="tx_id"><?= retrun_tx_func(Decrypt($row['addr'], $secret_key, $secret_iv), $row['coin']) ?></p>
+                  <p class="tx_id"><?php if ($row['od_type'] == "회원송금") echo $row['addr'];
+                                    else echo retrun_tx_func(Decrypt($row['addr'], $secret_key, $secret_iv), $row['coin']) ?></p>
                   <p class="hist_date"><?= $row['create_dt'] ?></p>
                   <p class="process_result">처리결과</p>
                 </div>
