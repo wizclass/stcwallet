@@ -108,6 +108,10 @@ $today_ready_cnt = sql_num_rows($today_ready);
 
 if ($is_debug) echo "<code>일제한: " . $day_limit . ' / 오늘 : ' . $today_ready_cnt . "<br><br>" . $today_ready_sql . "/ 총 필요금액" . $amt_eth_cal . "</code><br><br>";
 
+if ($deposit_mb_id == "") {
+  echo (json_encode(array("result" => "Failed", "code" => "0010", "sql" => "<span style='font-size:12px'>전송하실 회원 아이디를 입력해주세요.</span>"), JSON_UNESCAPED_UNICODE));
+  return false;
+}
 // 일 요청 제한
 if ($day_limit != 0 && $today_ready_cnt >= $day_limit) {
   echo (json_encode(array("result" => "Failed", "code" => "0010", "sql" => "<span style='font-size:12px'>일일 출금 횟수가 초과하였습니다. 하루 최대 $day_limit 회 출금 가능 합니다.</span>"), JSON_UNESCAPED_UNICODE));
