@@ -553,7 +553,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
     let templete_all = (data, index) => {
 
       if (data.states == "withdraw") {
-        txId = `<p class="tx_id">${short_code(data.credit)}</p>`;
+        txId = `<p class="tx_id">${data.credit}</p>`;
       } else txId = `<p class="tx_id">${retrun_tx_func(data.credit,'eth')}</p>`;
 
       return `<div class="hist_con_row1 <?= $row["states"] == "deposit" ? "deposit" : "withdraw" ?>" data-offset="${index}">
@@ -580,7 +580,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
                         <img src="<?= G5_THEME_URL ?>/img/withdraw.svg" alt="">
                     </div>
                     <div class="hist_mid">
-                        <p class="tx_id">${short_code(data.addr)}</p>      
+                        <p class="tx_id">${data.addr}</p>      
                         <p class="hist_date">${data.create_dt}</p>
                         <p class="process_result">처리결과</p>
                     </div>
