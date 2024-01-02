@@ -184,7 +184,8 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
       </div>
       <div class="link_btn_wrap">
         <a class="deposit" href="javascript:link('deposit','esgc');">입금</a>
-        <a class="withdraw" href="javascript:link('withdraw','esgc');">출금</a>
+        <a class="withdraw" href="javascript:link('withdraw','esgc');">출금(지갑주소)</a>
+        <a class="withdraw_member" href="javascript:link('withdraw_member','esgc');">출금(회원)</a>
       </div>
     </div>
     <!-- 입금 -->
@@ -244,7 +245,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
       </div>
     </section>
 
-    <!-- 출금 -->
+    <!-- 출금(지갑주소) -->
     <section id='withdraw' class='loadable <?= $_GET["view"] == "withdraw" ? "active" : "" ?> esgc'>
       <div class="box_ty01">
         <div class="content_wrap">
@@ -277,7 +278,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
                     디지털 자산의 특성상 출금 신청이 완료되면 취소 할 수 없습니다. 보내기전 주소와 수량을 꼭 확인 해주세요.<br><br>
                   </li>
                   <li>
-                    이더리움은 이더리움 지갑으로만 송금이 가능합니다. 오입금에 주의하시기 바랍니다.<br><br>
+                    STC는 STC 지갑으로만 송금이 가능합니다. 오입금에 주의하시기 바랍니다.<br><br>
                   </li>
                   <li>
                     출금이 이루어지는 주소는 타지갑의 입금 주소와 동일하지 않습니다.<br><br>
@@ -289,7 +290,7 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
                     부정 거래가 의심되는 경우 출금이 제한 될 수 있습니다.<br><br>
                   </li>
                   <li>
-                    타인의 지시나 요청 등으로 본인 명의 ESG Chain Wallet 계정을 타인에게 대여 시 법적 처벌대상이 될 수 있습니다.<br><br>
+                    타인의 지시나 요청 등으로 본인 명의 STC Wallet 계정을 타인에게 대여 시 법적 처벌대상이 될 수 있습니다.<br><br>
                   </li>
                   <li>
                     실명 인증된 계정을 타인에게 대여하는 경우 개인 정보 노출 위험에 처할 수 있습니다.<br><br>
@@ -307,6 +308,41 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
               <div class="col-7">
                 <button type="button" class="btn wd btn_wd form-send-button" id="Withdrawal_btn" data-toggle="modal" data-target="">출금 신청</button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 출금(회원에게) -->
+    <section id='withdraw_member' class='loadable <?= $_GET["view"] == "withdraw_member" ? "active" : "" ?> esgc'>
+      <div class="box_ty01">
+        <div class="content_wrap">
+          <input id="available_withdraw" type="hidden" value="<?= $total_token_balance ?> <?= ASSETS_CURENCY ?>">
+          <div>
+            <div class="withdraw_fee_wrap">
+              <input type="text" id="reg_mb_recommend" class="p15" placeholder="회원 아이디 입력 후 검색" required>
+              <button type='button' id='max_value' class='btn inline' onclick="getUser('#reg_mb_recommend',1);">검색</button>
+            </div>
+          </div>
+          <div>
+            <div class="withdraw_fee_wrap">
+              <input type="text" id="sendValue2" inputmode=numeric class="send_coin p15" placeholder="출금수량">
+              <label class='currency-right' id="withdraw_currency" style="margin-top: 0"><?= ASSETS_CURENCY ?></label>
+            </div>
+            <div class="real_withdraw">
+              <span id='fee_val'></span>
+            </div>
+          </div>
+          <div>
+            <input type="password" id="pin_auth_with2" class="p15" name="pin_auth_code" maxlength="6" placeholder="핀 번호">
+          </div>
+          <div class="send-button-container row">
+            <div class="col-5">
+              <button id="pin_open2" class="btn wd yellow form-send-button">인증</button>
+            </div>
+            <div class="col-7">
+              <button type="button" class="btn wd btn_wd form-send-button" id="Withdrawal_member_btn" data-toggle="modal" data-target="">출금 신청</button>
             </div>
           </div>
         </div>
@@ -731,6 +767,52 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
     });
   });
 
+  /*핀 입력*/
+  $(document).on('click', '#pin_open2', function(e) {
+
+    // 회원가입시 핀입력안한경우
+    if ("<?= $member['reg_tr_password'] ?>" == "") {
+      dialogModal('출금 비밀번호(핀코드) 인증', '<p>출금 비밀번호(핀코드) 등록해주세요.</p>', 'warning');
+
+      $('#modal_return_url').click(function() {
+        location.href = "./page.php?id=profile"
+      })
+      return;
+    }
+    /* 
+    if ($('#pin_auth_with').val() == "") {
+      dialogModal('출금 비밀번호(핀코드) 인증', '<p>출금 비밀번호(핀코드) 입력해주세요.</p>', 'warning');
+      return;
+    } */
+
+    $.ajax({
+      url: './util/pin_number_check_proc.php',
+      type: 'POST',
+      cache: false,
+      async: false,
+      data: {
+        "mb_id": mb_id,
+        "pin": $('#pin_auth_with2').val()
+      },
+      dataType: 'json',
+      success: function(result) {
+        if (result.response == "OK") {
+          dialogModal('출금 비밀번호(핀코드) 인증', '<p>출금 비밀번호가 인증되었습니다.</p>', 'success');
+
+          $('#Withdrawal_btn').attr('disabled', false);
+          $('#pin_open').attr('disabled', true);
+          $("#pin_auth_with").attr("readonly", true);
+          pin_check = true;
+        } else {
+          dialogModal('출금 비밀번호(핀코드) 인증', '<p>출금 비밀번호가 일치 하지 않습니다.</p>', 'failed');
+        }
+      },
+      error: function(e) {
+        //console.log(e);
+      }
+    });
+  });
+
   var time_reamin = false;
   var is_sms_submitted = false;
   var check_pin = false;
@@ -883,6 +965,108 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
 
   });
 
+  // 출금요청
+  $(document).on('click', '#Withdrawal_member_btn', function() {
+
+    var inputVal = Number($('#sendValue2').val().replace(/,/g, ''));
+    console.log(` out_min_limit : ${out_min_limit}\n out_max_limit:${out_max_limit}\n out_day_limit:${out_day_limit}\n out_fee: ${out_fee}`);
+
+    let withdraw_wallet_address = document.getElementById('withdraw_wallet_address').value;
+
+    // 모바일 등록 여부 확인
+    if (mb_hp == '' || mb_hp.length < 10) {
+      dialogModal('정보수정', '<strong> 안전한 출금을 위해 인증가능한 모바일 번호를 등록해주세요.</strong>', 'warning');
+
+      $('.closed').on('click', function() {
+        location.href = '/page.php?id=profile';
+      })
+      return false;
+    }
+
+    //KYC 인증
+    var out_count = Number("<?= $auth_cnt ?>");
+    var kyc_cert = Number("<?= $kyc_cert ?>");
+
+    if (out_count < 1 && kyc_cert != 1) {
+      dialogModal('KYC 인증 미등록/미승인 ', "KYC 인증 미등록/미승인<br>KYC인증이 미등록 또는 미승인 상태입니다.<br>안전한 출금을 위해 최초 1회 KYC 인증을<br>진행해주세요", 'kyc_warning');
+      return false;
+    }
+
+    if (!pin_check) {
+      dialogModal('인증번호', '<strong>인증번호 확인을 위해 [인증]을 눌러주세요.</strong>', 'warning');
+      return false;
+    }
+
+    // 계좌정보 입력 확인
+    // if (withdrawal_bank_name == '' || withdrawal_bank_account == '' || withdrawal_account_name == '') {
+    //   dialogModal('출금계좌확인', '<strong> 출금 계좌정보를 입력해주세요.</strong>', 'warning');
+    //   return false;
+    // }
+
+    // 출금서비스 이용가능 여부 확인
+    if (nw_with == 'N') {
+      dialogModal('서비스이용제한', '<strong>현재 출금가능한 시간이 아닙니다.</strong>', 'warning');
+      return false;
+    }
+
+    if (personal_with != '') {
+      dialogModal('서비스이용제한', '<strong>관리자에게 연락주세요</strong>', 'warning');
+      return false;
+    }
+
+
+    // 금액 입력 없거나 출금가능액 이상일때  
+    if (inputVal == '' || inputVal > Number(out_mb_max_limit)) {
+      console.log(`input : ${inputVal} \n max : ${out_mb_max_limit}`);
+      dialogModal('금액 입력 확인', '<strong>출금 수량을 확인해주세요.</strong>', 'warning');
+      return false;
+    }
+
+    // 최소 금액 확인
+    if (out_min_limit != 0 && inputVal < Number(out_min_limit)) {
+      dialogModal('금액 입력 확인', '<strong> 최소 가능 수량은 ' + Price(out_min_limit) + ' ' + ASSETS_CURENCY + '입니다.</strong>', 'warning');
+      return false;
+    }
+
+    //최대 금액 확인
+    if (out_max_limit != 0 && inputVal > Number(out_max_limit)) {
+      dialogModal('수량 입력 확인', '<strong> 1회 출금 가능 수량은 ' + Price(out_max_limit) + ' ' + ASSETS_CURENCY + '입니다.</strong>', 'warning');
+      return false;
+    }
+
+    // process_pin_mobile().then(function (){
+
+    $.ajax({
+      type: "POST",
+      url: "/util/withdrawal_member_proc.php",
+      cache: false,
+      async: false,
+      dataType: "json",
+      data: {
+        mb_id: mb_id,
+        deposit_mb_id: $("#reg_mb_recommend").val(),
+        func: 'withdraw',
+        amt: inputVal,
+        pin: $('#pin_auth_with2').val(),
+        select_coin: ASSETS_CURENCY,
+        wallet_address: withdraw_wallet_address
+      },
+      success: function(res) {
+        if (res.result == "success") {
+          dialogModal('', '<p class="modal_title">출금 신청 완료</p><p class="modal_sub_text">출금 신청이 완료되었습니다.</p>', 'success');
+          $('.closed').click(function() {
+            location.href = '/page.php?id=mywallet&view=withdraw';
+          });
+        } else {
+          dialogModal('Withdraw Failed', "<p>" + res.sql + "</p>", 'warning');
+        }
+      }
+    });
+
+    // });
+
+  });
+
   function process_pin_mobile() {
 
     return new Promise(
@@ -998,6 +1182,94 @@ $with_eth_wallet = Decrypt($member['eth_my_wallet'], $member['mb_id'], 'x')
 
   });
   // });
+
+  function getUser(etarget, type) {
+    /* const reg = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+    let memId = id.replace(reg, ""); */
+    var target = etarget;
+
+    $.ajax({
+      type: 'POST',
+      url: '/util/ajax.recommend.user.php',
+      data: {
+        mb_id: $(target).val(),
+        type: type
+      },
+      success: function(data) {
+        var list = JSON.parse(data);
+        var target_type = "#referral"
+
+        if (list.length > 0) {
+          $(target_type).modal('show');
+          var vHtml = $('<div>');
+
+          $.each(list, function(index, obj) {
+            // vHtml.append($("<div>").addClass('user').html(obj.mb_id));
+
+            if (type == 2) {
+              if (obj.mb_level > 0) {
+                vHtml.append($("<div style='text-indent:-999px'>").addClass('user').html(obj.mb_id));
+                vHtml.append($("<label>").addClass('mb_nick').html(obj.mb_nick));
+              } else {
+                vHtml.append($("<div style='color:red;text-indent:-999px'>").addClass('non_user').html(obj.mb_id));
+                vHtml.append($("<label style='color:red'>").addClass('mb_nick').html(obj.mb_nick));
+              }
+            } else {
+              if (obj.mb_level >= 0) {
+                vHtml.append($("<div>").addClass('user').html(obj.mb_id));
+              } else {
+                vHtml.append($("<div style='color:red;>").addClass('non_user').html(obj.mb_id));
+              }
+            }
+          });
+
+          $(target_type + ' .modal-body').html(vHtml.html());
+          first_select();
+
+
+          /* 첫번째 선택되어있게 */
+          function first_select() {
+            $(target_type + ' .modal-body .user:nth-child(1)').addClass('selected');
+
+            if (type == 2) {
+              $('#reg_mb_center_nick').val($(target_type + ' .modal-body .user.selected').html())
+              $(target).val($(target_type + ' .modal-body .user.selected + .mb_nick').html());
+            } else {
+              $(target).val($(target_type + ' .modal-body .user.selected').html());
+            }
+          }
+
+
+          $(target_type + ' .modal-body .user').click(function() {
+            // console.log('user click');
+            $(target_type + ' .modal-body .user').removeClass('selected');
+            $(target + ' .modal-body .user').removeClass('selected');
+            $(this).addClass('selected');
+          });
+
+
+          $(target_type + ' .modal-footer #btnSave').click(function() {
+
+            if (type == 2) {
+              $('#reg_mb_center_nick').val($(target_type + ' .modal-body .user.selected').html());
+              $(target).val($(target_type + ' .modal-body .user.selected + .mb_nick').html());
+              center_search = true;
+            } else {
+              $(target).val($(target_type + ' .modal-body .user.selected').html());
+              recommend_search = true;
+              $('#reg_mb_center').val($(target_type + ' .modal-body .user.selected').html());
+            }
+            $(target).attr("readonly", true);
+            $(target_type).modal('hide');
+          });
+
+        } else {
+
+          dialogModal('처리 결과', '해당되는 회원이 없습니다.', 'failed');
+        }
+      }
+    });
+  }
 
 
   function change_coin(target) {

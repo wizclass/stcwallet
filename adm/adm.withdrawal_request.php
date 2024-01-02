@@ -363,6 +363,8 @@ $ord_rev = $ord_array[($ord_key + 1) % 2]; // 내림차순→오름차순, 오�
 								} else { ?>
 									<a href='https://etherscan.io/address/<?= $addr2 ?>#tokentxns' target='_blank' <?= pre_haved($row_cnt) ?>> <?= short_code($addr2, 15) ?></a>
 							<? }
+							} else if ($row['addr'] == '회원송금') {
+								echo "회원송금";
 							} else {
 								if ($addr2 == $addr3) {
 									echo "<a href='https://etherscan.io/address/" . $addr2 . "#tokentxns' target='_blank' style='color:blue'>" . $addr2 . "</a>";

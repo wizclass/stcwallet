@@ -1470,7 +1470,8 @@ input:-webkit-autofill:active {
   color: #c7ccd5;
 }
 
-.mywallet #withdraw .content_wrap #max_value {
+.mywallet #withdraw .content_wrap #max_value,
+.mywallet #withdraw_member .content_wrap #max_value {
   position: relative;
   background: #00c8d5;
   color: #fff;
@@ -1483,7 +1484,8 @@ input:-webkit-autofill:active {
   height: 52px;
 }
 
-.mywallet #withdraw .content_wrap #sendValue {
+.mywallet #withdraw .content_wrap #sendValue,
+.mywallet #withdraw_member .content_wrap #sendValue {
   text-align: right;
   padding-right: 60px;
   border: 1px solid #dfe4ec;
@@ -1495,88 +1497,102 @@ input:-webkit-autofill:active {
   font-weight: 300;
 }
 
-.mywallet #withdraw .content_wrap #sendValue::-webkit-input-placeholder {
+.mywallet #withdraw .content_wrap #sendValue::-webkit-input-placeholder,
+.mywallet #withdraw_member .content_wrap #sendValue::-webkit-input-placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
   padding-right: 80px;
 }
 
-.mywallet #withdraw .content_wrap #sendValue::-moz-placeholder {
+.mywallet #withdraw .content_wrap #sendValue::-moz-placeholder,
+.mywallet #withdraw_member .content_wrap #sendValue::-moz-placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
   padding-right: 80px;
 }
 
-.mywallet #withdraw .content_wrap #sendValue:-ms-input-placeholder {
+.mywallet #withdraw .content_wrap #sendValue:-ms-input-placeholder,
+.mywallet #withdraw_member .content_wrap #sendValue:-ms-input-placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
   padding-right: 80px;
 }
 
-.mywallet #withdraw .content_wrap #sendValue::-ms-input-placeholder {
+.mywallet #withdraw .content_wrap #sendValue::-ms-input-placeholder,
+.mywallet #withdraw_member .content_wrap #sendValue::-ms-input-placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
   padding-right: 80px;
 }
 
-.mywallet #withdraw .content_wrap #sendValue::placeholder {
+.mywallet #withdraw .content_wrap #sendValue::placeholder .mywallet #withdraw_member .content_wrap #sendValue::placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
   padding-right: 80px;
 }
 
-.mywallet #withdraw .content_wrap #pin_auth_with {
+.mywallet #withdraw .content_wrap #pin_auth_with,
+.mywallet #withdraw_member .content_wrap #pin_auth_with {
   border: 1px solid #dfe4ec;
   border-radius: 8px;
   color: #333;
 }
 
-.mywallet #withdraw .content_wrap #pin_auth_with::-webkit-input-placeholder {
+.mywallet #withdraw .content_wrap #pin_auth_with::-webkit-input-placeholder,
+.mywallet #withdraw_member .content_wrap #pin_auth_with::-webkit-input-placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
 }
 
-.mywallet #withdraw .content_wrap #pin_auth_with::-moz-placeholder {
+.mywallet #withdraw .content_wrap #pin_auth_with::-moz-placeholder,
+.mywallet #withdraw_member .content_wrap #pin_auth_with::-moz-placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
 }
 
-.mywallet #withdraw .content_wrap #pin_auth_with:-ms-input-placeholder {
+.mywallet #withdraw .content_wrap #pin_auth_with:-ms-input-placeholder,
+.mywallet #withdraw_member .content_wrap #pin_auth_with:-ms-input-placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
 }
 
-.mywallet #withdraw .content_wrap #pin_auth_with::-ms-input-placeholder {
+.mywallet #withdraw .content_wrap #pin_auth_with::-ms-input-placeholder,
+.mywallet #withdraw_member .content_wrap #pin_auth_with::-ms-input-placeholder {
+
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
 }
 
-.mywallet #withdraw .content_wrap #pin_auth_with::placeholder {
+.mywallet #withdraw .content_wrap #pin_auth_with::placeholder,
+.mywallet #withdraw_member .content_wrap #pin_auth_with::placeholder {
   text-align: left;
   font-weight: 100;
   color: #c7ccd5;
 }
 
-.mywallet #withdraw .content_wrap #pin_open {
+.mywallet #withdraw .content_wrap #pin_open,
+.mywallet #withdraw_member .content_wrap #pin_open {
   background: #03dac3;
   color: #fff;
 }
 
-.mywallet #withdraw .content_wrap #Withdrawal_btn {
+.mywallet #withdraw .content_wrap #Withdrawal_btn,
+.mywallet #withdraw_member .content_wrap #Withdrawal_btn {
   background: #00c8d5;
   color: #fff;
 }
 
-.mywallet #withdraw .content_wrap #available_withdraw {
+.mywallet #withdraw .content_wrap #available_withdraw,
+.mywallet #withdraw_member .content_wrap #available_withdraw {
   width: 100%;
   text-align: right;
   font-size: 0.9rem;
@@ -1587,14 +1603,16 @@ input:-webkit-autofill:active {
   padding: 0 15px;
 }
 
-.mywallet #withdraw .content_wrap .withdraw_fee_wrap {
+.mywallet #withdraw .content_wrap .withdraw_fee_wrap,
+.mywallet #withdraw_member .content_wrap .withdraw_fee_wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
 }
 
-.mywallet #withdraw .content_wrap #withdraw_currency {
+.mywallet #withdraw .content_wrap #withdraw_currency,
+.mywallet #withdraw_member .content_wrap #withdraw_currency {
   color: #333;
   font-size: 0.9rem;
   float: none;
@@ -1603,34 +1621,40 @@ input:-webkit-autofill:active {
   padding: 15px 0;
 }
 
-.mywallet #withdraw .content_wrap .real_withdraw {
+.mywallet #withdraw .content_wrap .real_withdraw,
+.mywallet #withdraw_member .content_wrap .real_withdraw {
   font-size: 0.8rem;
   text-align: right;
   font-weight: 300;
 }
 
-.mywallet #withdraw .content_wrap .real_withdraw #fee_val {
+.mywallet #withdraw .content_wrap .real_withdraw #fee_val,
+.mywallet #withdraw_member .content_wrap .real_withdraw #fee_val {
   color: #ff0000;
   margin-left: 10px;
 }
 
-.mywallet #withdraw .content_wrap .real_withdraw span {
+.mywallet #withdraw .content_wrap .real_withdraw span,
+.mywallet #withdraw_member .content_wrap .real_withdraw span {
   color: #333;
 }
 
-.mywallet #withdraw .content_wrap .input_head_title {
+.mywallet #withdraw .content_wrap .input_head_title,
+.mywallet #withdraw_member .content_wrap .input_head_title {
   font-size: 1rem;
   position: absolute;
   top: 20%;
   left: 0%;
 }
 
-.mywallet #withdraw.eth .content_wrap #sendValue {
+.mywallet #withdraw.eth .content_wrap #sendValue,
+.mywallet #withdraw_member.eth .content_wrap #sendValue {
   padding-right: 50px;
 }
 
 .mywallet #deposit .title,
-.mywallet #withdraw .title {
+.mywallet #withdraw .title,
+.mywallet #withdraw_member .title {
   float: none;
   font-size: 0.9rem;
   margin: 10px 0;
@@ -1830,16 +1854,27 @@ input[type=number]::-webkit-inner-spin-button {
   background-color: #00baca;
 }
 
-.status_card_wrap.esgc .link_btn_wrap a:nth-child(1)::after {
+/* .status_card_wrap.esgc .link_btn_wrap a:nth-child(1)::after {
   content: "";
   width: 1px;
   height: 18px;
   background-color: #fff;
   display: inline-block;
   position: absolute;
-  right: 50%;
+  left: 33.333%;
   top: 33%;
 }
+
+.status_card_wrap.esgc .link_btn_wrap a:nth-child(2)::after {
+  content: "";
+  width: 1px;
+  height: 18px;
+  background-color: #fff;
+  display: inline-block;
+  position: absolute;
+  left: 66.666%;
+  top: 33%;
+} */
 
 .status_card_wrap.eth {
   background-color: #0cdbc5;
